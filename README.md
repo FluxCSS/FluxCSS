@@ -1,6 +1,3 @@
-Voici le code Markdown complet pour le fichier README de FluxCSS :
-
-```markdown
 # FluxCSS
 
 FluxCSS est un framework CSS moderne, dynamique et responsive conçu pour simplifier le développement web. Il offre une base solide pour créer des sites web élégants et réactifs avec un minimum d'effort.
@@ -78,6 +75,3 @@ Nous accueillons les contributions de la communauté ! Si vous souhaitez contrib
 ## Licence
 
 FluxCSS est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-```
-
-Vous pouvez copier ce texte directement dans votre fichier README.md.
