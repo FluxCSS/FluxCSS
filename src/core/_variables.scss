@@ -1,0 +1,34 @@
+// Global variables for the framework
+
+// Primary and secondary colors
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// Base font settings
+$font-size-base: 16px;
+$font-family-base: Arial, sans-serif;
+
+// Breakpoints for responsive design
+$breakpoints: (
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1800px
+);
+
+// Base spacing
+$spacer: 16px;
+
+// Spacing scale for consistent margin and padding sizes
+$spacing: (
+        0: 0,
+        1: $spacer * 0.25, // 4px
+        2: $spacer * 0.5,  // 8px
+        3: $spacer,        // 16px
+        4: $spacer * 1.5,  // 24px
+        5: $spacer * 2,    // 32px
+        6: $spacer * 3,    // 48px
+        7: $spacer * 4,    // 64px
+        8: $spacer * 5     // 80px
+);

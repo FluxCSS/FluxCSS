@@ -1,0 +1,25 @@
+// Mixins for reusable CSS rules
+
+// Mixin for responsive breakpoints
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Invalid breakpoint: #{$breakpoint}";
+    }
+}
+
+// Mixin for creating a flexible container
+@mixin make-container($max-width: 100%) {
+    width: 100%;
+    padding-right: calc($spacer / 2);
+    padding-left: calc($spacer / 2);
+    margin-right: auto;
+    margin-left: auto;
+
+    @include respond-to(sm) {
+        max-width: $max-width;
+    }
+}

@@ -1,0 +1,309 @@
+// Comprehensive reset for HTML elements
+
+// Box-sizing: Use border-box for all elements
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Remove default margin, padding, and border for all elements
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+// HTML5 display-role reset for older browsers
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+// Remove default list styles
+ol,
+ul {
+    list-style: none;
+}
+
+// Remove default table styles
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+// Remove default form element styles
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+button,
+input {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html [disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+// Remove default textarea styles
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+// Remove default link styles
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+// Remove default image styles
+img {
+    border-style: none;
+    vertical-align: middle;
+}
+
+// Remove default figure styles
+figure {
+    margin: 0;
+}
+
+// Remove default caption styles
+caption {
+    caption-side: bottom;
+}
+
+// Remove default fieldset styles
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+// Remove default legend styles
+legend {
+    padding: 0;
+}
+
+// Remove default details styles
+details {
+    display: block;
+}
+
+// Remove default summary styles
+summary {
+    display: list-item;
+}
+
+// Remove default ruby styles
+ruby {
+    display: inline;
+}
+
+// Remove default menu styles
+menu {
+    display: block;
+}
+
+// Remove default audio and video styles
+audio,
+video {
+    display: inline-block;
+}
+
+// Remove default iframe styles
+iframe {
+    border: 0;
+}
+
+// Remove default hr styles
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+// Remove default abbr styles
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+// Remove default b, strong styles
+b,
+strong {
+    font-weight: bolder;
+}
+
+// Remove default code, kbd, samp styles
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+// Remove default small styles
+small {
+    font-size: 80%;
+}
+
+// Remove default sub, sup styles
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+// Remove default embed, object, img styles
+embed,
+object,
+img {
+    max-width: 100%;
+    height: auto;
+}

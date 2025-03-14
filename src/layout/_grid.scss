@@ -1,0 +1,126 @@
+// Grid system using Flexbox
+
+/*****************************************
+*          Container system              *
+*****************************************/
+.container {
+    @include make-container();
+}
+
+// Fixed-width containers based on breakpoints
+.container-fixed {
+    width: 100%;
+    padding-inline: calc($spacer / 2);
+    margin-inline: auto;
+
+    @include respond-to(sm) {
+        max-width: 540px;
+    }
+
+    @include respond-to(md) {
+        max-width: 720px;
+    }
+
+    @include respond-to(lg) {
+        max-width: 960px;
+    }
+
+    @include respond-to(xl) {
+        max-width: 1140px;
+    }
+
+    @include respond-to(xxl) {
+        max-width: 1720px;
+    }
+}
+
+/*****************************************
+*           Flexbox system               *
+*****************************************/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(0px - $spacer / 2);
+}
+
+.column {
+    padding-inline: calc($spacer / 2);
+
+    // Loop to create column classes
+    @for $i from 1 through 12 {
+        &.size-#{$i} {
+            flex: 0 0 percentage($i / 12);
+            max-width: percentage($i / 12);
+        }
+    }
+
+    // Responsive column classes for each breakpoint
+    @each $breakpoint, $width in $breakpoints {
+        @include respond-to($breakpoint) {
+            @for $i from 1 through 12 {
+                &.size-#{$breakpoint}-#{$i} {
+                    flex: 0 0 percentage($i / 12);
+                    max-width: percentage($i / 12);
+                }
+            }
+        }
+    }
+}
+
+
+/*****************************************
+*           CSS Grid system              *
+*****************************************/
+// Grid system using CSS Grid with responsive columns
+
+// Mixin to create a responsive grid container
+@mixin make-grid-container($columns) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $spacer;
+}
+
+// Mixin to adjust grid columns at breakpoints
+@mixin responsive-grid-columns($breakpoint, $columns) {
+    @include respond-to($breakpoint) {
+        grid-template-columns: repeat($columns, 1fr);
+    }
+}
+
+// Default grid container with 12 columns
+.grid {
+    @include make-grid-container(12);
+
+    // Adjust columns at each breakpoint
+    @each $breakpoint, $width in $breakpoints {
+        @include responsive-grid-columns($breakpoint, 12);
+    }
+}
+
+
+// Grid item base styles
+.grid-column {
+    // Base styles
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: $spacer;
+
+    // Default sizes
+    @for $i from 1 through 12 {
+        &.size-#{$i} {
+            grid-column: span $i;
+        }
+    }
+
+    // Responsive sizes
+    @each $breakpoint, $width in $breakpoints {
+        @include respond-to($breakpoint) {
+            @for $i from 1 through 12 {
+                &.size-#{$breakpoint}-#{$i} {
+                    grid-column: span $i;
+                }
+            }
+        }
+    }
+}
+
