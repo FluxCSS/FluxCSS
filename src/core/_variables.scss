@@ -1,8 +1,66 @@
+@use "sass:map";
 // Global variables for the framework
 
 // Primary and secondary colors
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
+// Color palette variables
+$primary: #5f3a82;
+$secondary: #82a35f;
+$tertiary: #a3826b;
+
+$success: #4caf50;
+$warning: #f0ad4e;
+$danger: #d9534f;
+$info: #5bc0de;
+
+$light: #f9f9f9;
+$dark: #333333;
+
+
+// Theme colors
+$theme-colors: (
+    "primary":      $primary,
+    "secondary":    $secondary,
+    "tertiary":     $tertiary,
+    "success":      $success,
+    "warning":      $warning,
+    "danger":       $danger,
+    "info":         $info,
+    "light":        $light,
+    "dark":         $dark,
+);
+
+// Basic palette colors
+$palette-colors: (
+    "white": #FFFFFF,
+    "silver": #C0C0C0,
+    "gray": #808080,
+    "black": #000000,
+    "red": #FF0000,
+    "maroon": #800000,
+    "yellow": #FFFF00,
+    "olive": #808000,
+    "lime": #00FF00,
+    "green": #008000,
+    "aqua": #00FFFF,
+    "teal": #008080,
+    "blue": #0000FF,
+    "navy": #000080,
+    "fuchsia": #FF00FF,
+    "purple": #800080
+);
+$all-colors: map.deep-merge($theme-colors, $palette-colors);
+// Color variations (min 10 max 100)
+$color-variants: (
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+);
 
 // Base font settings
 $font-size-base: 16px;
@@ -10,11 +68,11 @@ $font-family-base: Arial, sans-serif;
 
 // Breakpoints for responsive design
 $breakpoints: (
-        sm: 576px,
-        md: 768px,
-        lg: 992px,
-        xl: 1200px,
-        xxl: 1800px
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1800px
 );
 
 // Base spacing
@@ -22,13 +80,13 @@ $spacer: 16px;
 
 // Spacing scale for consistent margin and padding sizes
 $spacing: (
-        0: 0,
-        1: $spacer * 0.25, // 4px
-        2: $spacer * 0.5,  // 8px
-        3: $spacer,        // 16px
-        4: $spacer * 1.5,  // 24px
-        5: $spacer * 2,    // 32px
-        6: $spacer * 3,    // 48px
-        7: $spacer * 4,    // 64px
-        8: $spacer * 5     // 80px
+    0: 0,
+    1: $spacer * 0.25, // 4px
+    2: $spacer * 0.5,  // 8px
+    3: $spacer,        // 16px
+    4: $spacer * 1.5,  // 24px
+    5: $spacer * 2,    // 32px
+    6: $spacer * 3,    // 48px
+    7: $spacer * 4,    // 64px
+    8: $spacer * 5     // 80px
 );

@@ -1,0 +1,35 @@
+/*****************************************
+*             Main colors                *
+*****************************************/
+// Generate text color classes for each color in the theme-colors map
+@each $color-name, $color-value in $all-colors {
+    .text-#{$color-name} {
+        color: $color-value !important;
+    }
+
+    .bg-#{$color-name} {
+        background-color: $color-value;
+        color: get-contrast-color($color-value);
+    }
+}
+
+/*****************************************
+*          Colors variations             *
+*****************************************/
+// Tint variants (lighter shades from 0 to 90)
+@each $color-name, $base-color in $all-colors {
+    @each $variant in $color-variants {
+        $white-percentage: 100 - $variant;
+
+        .text-#{$color-name}-#{$variant} {
+            color: mix(white, $base-color, $white-percentage) !important;
+        }
+
+        $bg-color: if($variant == 0, white, mix(white, $base-color, $white-percentage));
+
+        .bg-#{$color-name}-#{$variant} {
+            background-color: $bg-color;
+            color: get-contrast-color($bg-color);
+        }
+    }
+}

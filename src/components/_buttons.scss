@@ -1,0 +1,136 @@
+// Base style for all buttons
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+    &:focus, &.focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    &:disabled, &.disabled {
+        opacity: 0.65;
+        pointer-events: none;
+    }
+}
+
+// Generation of button variants for each color
+@each $color-name, $base-color in $all-colors {
+    // Base button for each color (100% intensity)
+    .btn-#{$color-name} {
+        background-color: $base-color;
+        border-color: $base-color;
+        color: get-contrast-color($base-color);
+
+        &:hover {
+            $hover-bg: get-hover-color($base-color);
+            background-color: $hover-bg;
+            border-color: $hover-bg;
+            color: get-contrast-color($hover-bg);
+        }
+
+        &:active, &.active {
+            $active-bg: get-active-color($base-color);
+            background-color: $active-bg;
+            border-color: $active-bg;
+            color: get-contrast-color($active-bg);
+        }
+    }
+
+    // Outline version for each color
+    .btn-outline-#{$color-name} {
+        background-color: transparent;
+        border-color: $base-color;
+        color: $base-color;
+
+        &:hover {
+            background-color: $base-color;
+            color: get-contrast-color($base-color);
+        }
+
+        &:active, &.active {
+            $active-bg: get-active-color($base-color);
+            background-color: $active-bg;
+            border-color: $active-bg;
+            color: get-contrast-color($active-bg);
+        }
+    }
+
+    // Intensity variants for each color (from 10 to 90)
+    @for $i from 1 through 9 {
+        $intensity: $i * 10;
+        $white-percentage: 100 - $intensity;
+        $btn-color: mix(white, $base-color, $white-percentage);
+
+        .btn-#{$color-name}-#{$intensity} {
+            background-color: $btn-color;
+            border-color: $btn-color;
+            color: get-contrast-color($btn-color);
+
+            &:hover {
+                $hover-bg: get-hover-color($btn-color, 5%);
+                background-color: $hover-bg;
+                border-color: $hover-bg;
+                color: get-contrast-color($hover-bg);
+            }
+
+            &:active, &.active {
+                $active-bg: get-active-color($btn-color, 10%);
+                background-color: $active-bg;
+                border-color: $active-bg;
+                color: get-contrast-color($active-bg);
+            }
+        }
+
+        // Outline version for each intensity variant
+        .btn-outline-#{$color-name}-#{$intensity} {
+            background-color: transparent;
+            border-color: $btn-color;
+            color: $btn-color;
+
+            &:hover {
+                background-color: $btn-color;
+                color: get-contrast-color($btn-color);
+            }
+
+            &:active, &.active {
+                $active-bg: get-active-color($btn-color, 10%);
+                background-color: $active-bg;
+                border-color: $active-bg;
+                color: get-contrast-color($active-bg);
+            }
+        }
+    }
+}
+
+// Button sizes
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+
+// Full-width button
+.btn-block {
+    display: block;
+    width: 100%;
+}

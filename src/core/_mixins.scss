@@ -23,3 +23,69 @@
         max-width: $max-width;
     }
 }
+
+// Fonction pour calculer la luminance relative selon WCAG
+@function luminance($color) {
+    $red: red($color) / 255;
+    $green: green($color) / 255;
+    $blue: blue($color) / 255;
+
+    $red: if($red <= 0.03928, $red / 12.92, pow(($red + 0.055) / 1.055, 2.4));
+    $green: if($green <= 0.03928, $green / 12.92, pow(($green + 0.055) / 1.055, 2.4));
+    $blue: if($blue <= 0.03928, $blue / 12.92, pow(($blue + 0.055) / 1.055, 2.4));
+
+    @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+}
+
+// Fonction pour déterminer le rapport de contraste
+@function contrast-ratio($bg, $text) {
+    $bg-luminance: luminance($bg) + 0.05;
+    $text-luminance: luminance($text) + 0.05;
+
+    @return if($bg-luminance > $text-luminance,
+            $bg-luminance / $text-luminance,
+            $text-luminance / $bg-luminance);
+}
+
+// Fonction pour choisir entre texte blanc ou noir basé sur le meilleur contraste
+@function get-contrast-color($bg-color) {
+    $contrast-white: contrast-ratio($bg-color, white);
+    $contrast-black: contrast-ratio($bg-color, black);
+
+    @return if($contrast-white >= $contrast-black, white, black);
+}
+
+
+// Fonction pour obtenir une teinte plus foncée pour le hover de façon sécurisée
+@function get-hover-color($color, $amount: 10%) {
+    @if type-of($color) != color {
+        @error "La valeur #{$color} n'est pas une couleur valide";
+        @return #000000;
+    }
+
+    // Pour les couleurs très claires, utiliser une approche différente
+    $lightness: lightness($color);
+    @if $lightness > 90% {
+        // Utiliser mix au lieu de darken pour les couleurs très claires
+        @return mix(black, $color, $amount * 2);
+    } @else {
+        @return darken($color, $amount);
+    }
+}
+
+// Fonction pour obtenir une teinte encore plus foncée pour le active
+@function get-active-color($color, $amount: 15%) {
+    @if type-of($color) != color {
+        @error "La valeur #{$color} n'est pas une couleur valide";
+        @return #000000;
+    }
+
+    // Pour les couleurs très claires, utiliser une approche différente
+    $lightness: lightness($color);
+    @if $lightness > 90% {
+        // Utiliser mix au lieu de darken pour les couleurs très claires
+        @return mix(black, $color, $amount * 2);
+    } @else {
+        @return darken($color, $amount);
+    }
+}
