@@ -1,14 +1,21 @@
+@use 'sass:map';
+
+$all-colors: $theme-colors;
+@if $use-all-colors == true {
+    $all-colors: map.deep-merge($theme-colors, $palette-colors);
+}
+
 /*****************************************
 *             Main colors                *
 *****************************************/
 // Generate text color classes for each color in the theme-colors map
 @each $color-name, $color-value in $all-colors {
     .text-#{$color-name} {
-        color: $color-value !important;
+        color: var(--#{$prefix}-#{$color-name}) !important;
     }
 
     .bg-#{$color-name} {
-        background-color: $color-value;
+        background-color: var(--#{$prefix}-#{$color-name});
         color: get-contrast-color($color-value);
     }
 }

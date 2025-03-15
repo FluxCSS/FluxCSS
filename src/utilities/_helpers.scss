@@ -13,50 +13,79 @@
 }
 
 // Spacing utilities using margin-inline, padding-inline, margin-block, and padding-block
-@each $key, $value in $spacing {
-    .m-#{$key} { margin: $value; }
-    .mt-#{$key} { margin-block-start: $value; }
-    .me-#{$key} { margin-inline-end: $value; }
-    .mb-#{$key} { margin-block-end: $value; }
-    .ms-#{$key} { margin-inline-start: $value; }
+@each $breakpoint, $width in $breakpoints {
+    @include respond-to($breakpoint) {
+        @each $key, $value in $spacing {
+            .m-#{$breakpoint}-#{$key} {
+                margin: $value;
+            }
+            .mt-#{$breakpoint}-#{$key} {
+                margin-block-start: $value;
+            }
+            .me-#{$breakpoint}-#{$key} {
+                margin-inline-end: $value;
+            }
+            .mb-#{$breakpoint}-#{$key} {
+                margin-block-end: $value;
+            }
+            .ms-#{$breakpoint}-#{$key} {
+                margin-inline-start: $value;
+            }
 
-    .p-#{$key} { padding: $value; }
-    .pt-#{$key} { padding-block-start: $value; }
-    .pe-#{$key} { padding-inline-end: $value; }
-    .pb-#{$key} { padding-block-end: $value; }
-    .ps-#{$key} { padding-inline-start: $value; }
+            .p-#{$breakpoint}-#{$key} {
+                padding: $value;
+            }
+            .pt-#{$breakpoint}-#{$key} {
+                padding-block-start: $value;
+            }
+            .pe-#{$breakpoint}-#{$key} {
+                padding-inline-end: $value;
+            }
+            .pb-#{$breakpoint}-#{$key} {
+                padding-block-end: $value;
+            }
+            .ps-#{$breakpoint}-#{$key} {
+                padding-inline-start: $value;
+            }
 
-    // Responsive margin and padding utilities for each breakpoint
-    @each $breakpoint, $width in $breakpoints {
-        @include respond-to($breakpoint) {
-            .m-#{$breakpoint}-#{$key} { margin: $value; }
-            .mt-#{$breakpoint}-#{$key} { margin-block-start: $value; }
-            .me-#{$breakpoint}-#{$key} { margin-inline-end: $value; }
-            .mb-#{$breakpoint}-#{$key} { margin-block-end: $value; }
-            .ms-#{$breakpoint}-#{$key} { margin-inline-start: $value; }
-
-            .p-#{$breakpoint}-#{$key} { padding: $value; }
-            .pt-#{$breakpoint}-#{$key} { padding-block-start: $value; }
-            .pe-#{$breakpoint}-#{$key} { padding-inline-end: $value; }
-            .pb-#{$breakpoint}-#{$key} { padding-block-end: $value; }
-            .ps-#{$breakpoint}-#{$key} { padding-inline-start: $value; }
-        }
-    }
-
-    // Responsive gap utilities for each breakpoint
-    @each $breakpoint, $width in $breakpoints {
-        // Gap utilities for flex and grid
-        .gap-#{$key} {
-            gap: $value;
-        }
-
-        // Responsive gap utilities for each breakpoint
-        @each $breakpoint, $width in $breakpoints {
-            @include respond-to($breakpoint) {
-                .gap-#{$breakpoint}-#{$key} {
-                    gap: $value;
-                }
+            .gap-#{$breakpoint}-#{$key} {
+                gap: $value;
             }
         }
     }
 }
+
+@each $key, $value in $spacing {
+    .m-#{$key} {
+        margin: $value;
+    }
+    .mt-#{$key} {
+        margin-block-start: $value;
+    }
+    .me-#{$key} {
+        margin-inline-end: $value;
+    }
+    .mb-#{$key} {
+        margin-block-end: $value;
+    }
+    .ms-#{$key} {
+        margin-inline-start: $value;
+    }
+
+    .p-#{$key} {
+        padding: $value;
+    }
+    .pt-#{$key} {
+        padding-block-start: $value;
+    }
+    .pe-#{$key} {
+        padding-inline-end: $value;
+    }
+    .pb-#{$key} {
+        padding-block-end: $value;
+    }
+    .ps-#{$key} {
+        padding-inline-start: $value;
+    }
+}
+

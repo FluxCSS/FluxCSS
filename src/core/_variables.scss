@@ -1,6 +1,5 @@
-@use "sass:map";
 // Global variables for the framework
-
+$prefix: 'fs';
 // Primary and secondary colors
 // Color palette variables
 $primary: #5f3a82;
@@ -48,7 +47,10 @@ $palette-colors: (
     "fuchsia": #FF00FF,
     "purple": #800080
 );
-$all-colors: map.deep-merge($theme-colors, $palette-colors);
+
+// Activate all colors palette
+$use-all-colors: true;
+
 // Color variations (min 10 max 100)
 $color-variants: (
     10,
@@ -72,8 +74,19 @@ $breakpoints: (
     md: 768px,
     lg: 992px,
     xl: 1200px,
-    xxl: 1800px
-);
+    xxl: 1500px,
+    3xl: 1800px,
+) !default;
+
+// Breakpoints for responsive design
+$containers-width: (
+    sm: 540px,
+    md: 720px,
+    lg: 930px,
+    xl: 1140px,
+    xxl: 1420px,
+    3xl: 1720px
+) !default;
 
 // Base spacing
 $spacer: 16px;
@@ -89,4 +102,4 @@ $spacing: (
     6: $spacer * 3,    // 48px
     7: $spacer * 4,    // 64px
     8: $spacer * 5     // 80px
-);
+) !default;

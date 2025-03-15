@@ -1,4 +1,25 @@
+@use 'sass:map';
+
 // Comprehensive reset for HTML elements
+// Mixin pour générer des variables CSS
+@mixin generate-css-vars($vars) {
+    @each $key, $value in $vars {
+        --#{$prefix}-#{$key}: #{$value};
+    }
+}
+
+// Utiliser le mixin pour générer les variables CSS
+:root {
+    $all-colors: $theme-colors;
+    @if $use-all-colors == true {
+        $all-colors: map.deep-merge($theme-colors, $palette-colors);
+    }
+
+    @include generate-css-vars(
+        $all-colors
+    );
+
+}
 
 // Box-sizing: Use border-box for all elements
 *,
