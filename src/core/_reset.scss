@@ -1,7 +1,7 @@
-@use 'sass:map';
 @charset "UTF-8";
+@use 'sass:map';
 /*!
- * FluxCSS v0.0.1 (https://fluxcss.org/)
+ * FluxCSS v0.0.2 (https://fluxcss.org/)
  * Copyright 2025 Nouvelle-Techno.fr
  * Licensed under GPL (https://github.com/Nouvelle-Techno-fr/FluxCSS/blob/main/LICENSE)
  */
@@ -33,311 +33,180 @@
     --#{$prefix}-border-color: #{$border-color};
     --#{$prefix}-shadow-color: #{$default-shadow-color};
     --#{$prefix}-shadow-size: #{$default-shadow-size};
-
+    --#{$prefix}-font-family: #{$base-font-family};
+    --#{$prefix}-border-radius: #{$base-border-radius};
 }
 
-// Box-sizing: Use border-box for all elements
+/* Box-sizing */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-// Remove default margin, padding, and border for all elements
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/* Remove default margin and padding */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
+    font: inherit;
     vertical-align: baseline;
 }
 
-// HTML5 display-role reset for older browsers
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
-// Remove default list styles
-ol,
-ul {
+body {
+    font-family: $base-font-family;
+    font-size: map-get($font-sizes, 3); // Standard size
+    line-height: $line-height-base;
+    font-weight: map-get($font-weights, 4); // Regular weight
+}
+
+ol, ul {
     list-style: none;
 }
 
-// Remove default table styles
+blockquote, q {
+    quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+    content: '';
+    content: none;
+}
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-caption,
-th {
-    text-align: left;
+/* Remove default styles for links */
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-// Remove default form element styles
-button,
-input,
-select,
-textarea {
+/* Remove default styles for buttons */
+button, input, select, textarea {
     font-family: inherit;
     font-size: 100%;
     margin: 0;
 }
 
-button,
-input {
-    overflow: visible;
-}
-
-button,
-select {
-    text-transform: none;
-}
-
-button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
-    -webkit-appearance: button;
-    cursor: pointer;
-}
-
-button[disabled],
-html [disabled] {
-    cursor: default;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-}
-
-input[type="search"] {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+/* Remove default styles for form elements */
+input, textarea {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
 }
 
-// Remove default textarea styles
-textarea {
-    overflow: auto;
-    resize: vertical;
+/* Ensure consistent vertical alignment of form elements */
+button, input, select, textarea {
+    vertical-align: middle;
 }
 
-// Remove default link styles
-a {
-    background-color: transparent;
-    text-decoration: none;
-    color: inherit;
-}
-
-// Remove default image styles
+/* Remove default styles for images */
 img {
     border-style: none;
     vertical-align: middle;
 }
 
-// Remove default figure styles
-figure {
-    margin: 0;
-}
-
-// Remove default caption styles
-caption {
-    caption-side: bottom;
-}
-
-// Remove default fieldset styles
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-// Remove default legend styles
-legend {
-    padding: 0;
-}
-
-// Remove default details styles
-details {
-    display: block;
-}
-
-// Remove default summary styles
-summary {
-    display: list-item;
-}
-
-// Remove default ruby styles
-ruby {
-    display: inline;
-}
-
-// Remove default menu styles
-menu {
-    display: block;
-}
-
-// Remove default audio and video styles
-audio,
-video {
-    display: inline-block;
-}
-
-// Remove default iframe styles
-iframe {
-    border: 0;
-}
-
-// Remove default hr styles
+/* Ensure consistent rendering of hr elements */
 hr {
     box-sizing: content-box;
     height: 0;
     overflow: visible;
 }
 
-// Remove default abbr styles
-abbr[title] {
-    border-bottom: none;
-    text-decoration: underline;
+/* Ensure consistent rendering of pre elements */
+pre {
+    overflow: auto;
 }
 
-// Remove default b, strong styles
-b,
-strong {
-    font-weight: bolder;
-}
-
-// Remove default code, kbd, samp styles
-code,
-kbd,
-samp {
+/* Ensure consistent rendering of code and kbd elements */
+code, kbd, pre, samp {
     font-family: monospace, monospace;
     font-size: 1em;
 }
 
-// Remove default small styles
-small {
-    font-size: 80%;
+/* Ensure consistent rendering of buttons */
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-// Remove default sub, sup styles
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+/* Ensure consistent rendering of textareas */
+textarea {
+    overflow: auto;
+    resize: vertical;
 }
 
-sub {
-    bottom: -0.25em;
+/* Ensure consistent rendering of fieldsets */
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
-sup {
-    top: -0.5em;
+/* Ensure consistent rendering of legends */
+legend {
+    border: 0;
+    padding: 0;
 }
 
-// Remove default embed, object, img styles
-embed,
-object,
-img {
-    max-width: 100%;
-    height: auto;
+/* Ensure consistent rendering of details and summary elements */
+details, summary {
+    display: block;
+}
+
+/* Ensure consistent rendering of audio and video elements */
+audio, video {
+    display: inline-block;
+}
+
+/* Ensure consistent rendering of iframes */
+iframe {
+    border: 0;
+}
+
+// Base styles
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    font-family: $base-font-family;
+    font-weight: map-get($font-weights, 7); // Bold weight
+    line-height: $line-height-base;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: map-get($font-sizes, 7); }
+h2 { font-size: map-get($font-sizes, 6); }
+h3 { font-size: map-get($font-sizes, 5); }
+h4 { font-size: map-get($font-sizes, 4); }
+h5 { font-size: map-get($font-sizes, 3); }
+h6 { font-size: map-get($font-sizes, 2); }
+
+// Paragraphs
+p {
+    margin-bottom: 1em;
 }

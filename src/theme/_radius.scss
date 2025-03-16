@@ -1,0 +1,41 @@
+// Generate border radius utility classes
+@each $key, $value in $border-radius-scale {
+    .r-#{$key} {
+        --#{$prefix}-border-radius: #{$value};
+        border-radius: var(--#{$prefix}-border-radius);
+    }
+}
+
+// Utility classes for specific corners
+.r-top {
+    border-radius: 0;
+    border-top-left-radius: var(--#{$prefix}-border-radius, 6px);
+    border-top-right-radius: var(--#{$prefix}-border-radius, 6px);
+}
+
+.r-end {
+    border-radius: 0;
+    border-start-end-radius: var(--#{$prefix}-border-radius, 6px);
+    border-end-end-radius: var(--#{$prefix}-border-radius, 6px);
+}
+
+.r-bottom {
+    border-radius: 0;
+    border-bottom-left-radius: var(--#{$prefix}-border-radius, 6px);
+    border-bottom-right-radius: var(--#{$prefix}-border-radius, 6px);
+}
+
+.r-start {
+    border-radius: 0;
+    border-start-start-radius: var(--#{$prefix}-border-radius, 6px);
+    border-end-start-radius: var(--#{$prefix}-border-radius, 6px);
+}
+
+// Utility classes for circular and pill shapes
+.r-circle {
+    border-radius: 50%;
+}
+
+.r-pill {
+    border-radius: 9999px;
+}

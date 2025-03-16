@@ -1,0 +1,9 @@
+// Utility classes for font sizes
+@each $key, $size in $font-sizes {
+    .fs-#{$key} { font-size: $size; }
+}
+
+// Utility classes for font weights
+@each $key, $weight in $font-weights {
+    .fw-#{$key} { font-weight: $weight; }
+}

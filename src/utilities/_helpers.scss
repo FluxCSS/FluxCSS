@@ -31,6 +31,12 @@
             .ms-#{$breakpoint}-#{$key} {
                 margin-inline-start: $value;
             }
+            .mx-#{$breakpoint}-#{$key} {
+                margin-inline: $value;
+            }
+            .my-#{$breakpoint}-#{$key} {
+                margin-block: $value;
+            }
 
             .p-#{$breakpoint}-#{$key} {
                 padding: $value;
@@ -47,11 +53,21 @@
             .ps-#{$breakpoint}-#{$key} {
                 padding-inline-start: $value;
             }
+            .px-#{$breakpoint}-#{$key} {
+                padding-inline: $value;
+            }
+            .py-#{$breakpoint}-#{$key} {
+                padding-block: $value;
+            }
 
             .gap-#{$breakpoint}-#{$key} {
                 gap: $value;
             }
         }
+        .mx-#{$breakpoint}-auto {
+            margin-inline: auto;
+        }
+
     }
 }
 
@@ -71,6 +87,12 @@
     .ms-#{$key} {
         margin-inline-start: $value;
     }
+    .mx-#{$key} {
+        margin-inline: $value;
+    }
+    .my-#{$key} {
+        margin-block: $value;
+    }
 
     .p-#{$key} {
         padding: $value;
@@ -87,5 +109,67 @@
     .ps-#{$key} {
         padding-inline-start: $value;
     }
+    .px-#{$key} {
+        padding-inline: $value;
+    }
+    .py-#{$key} {
+        padding-block: $value;
+    }
 }
 
+.mx-auto{
+    margin-inline: auto
+}
+
+// Generate width utility classes
+@each $key, $value in $size-scale {
+    .w-#{$key} {
+        width: $value;
+    }
+    .min-w-#{$key} {
+        min-width: $value;
+    }
+    .max-w-#{$key} {
+        max-width: $value;
+    }
+}
+
+// Generate height utility classes
+@each $key, $value in $size-scale {
+    .h-#{$key} {
+        height: $value;
+    }
+    .min-h-#{$key} {
+        min-width: $value;
+    }
+    .max-h-#{$key} {
+        max-width: $value;
+    }
+}
+
+// Utility classes for viewport width and height
+// Generate width utility classes
+@each $key, $value in $viewport-size-scale {
+    .vw-#{$key} {
+        width: #{$value}vw;
+    }
+    .min-vw-#{$key} {
+        min-width: #{$value}vw;
+    }
+    .max-vw-#{$key} {
+        max-width: #{$value}vw;
+    }
+}
+
+// Generate height utility classes
+@each $key, $value in $viewport-size-scale {
+    .vh-#{$key} {
+        height: #{$value}vh;
+    }
+    .min-vh-#{$key} {
+        min-height: #{$value}vh;
+    }
+    .max-vh-#{$key} {
+        max-height: #{$value}vh;
+    }
+}

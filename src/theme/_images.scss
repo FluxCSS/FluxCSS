@@ -1,0 +1,58 @@
+// _image_helpers.scss
+
+// Responsive image class
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Object-fit classes
+.img-cover {
+    object-fit: cover;
+}
+
+.img-contain {
+    object-fit: contain;
+}
+
+.img-fill {
+    object-fit: fill;
+}
+
+.img-none {
+    object-fit: none;
+}
+
+.img-scale-down {
+    object-fit: scale-down;
+}
+
+// Border radius classes for images
+.img-rounded {
+    border-radius: 0.25rem;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+// Utility classes for image width and height
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.img-fixed {
+    width: auto;
+    height: auto;
+}
+
+// Generate thumbnail size classes
+.img-thumb {
+    border-radius: var(--#{$prefix}-border-radius, 6px);
+    object-fit: cover; // Ensures the image covers the thumbnail area
+    border: 1px solid $dark; // Black border followed by white border
+    padding: .25rem;
+}
+
