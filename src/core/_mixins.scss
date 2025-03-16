@@ -131,3 +131,29 @@
         }
     }
 }
+
+// Mixin to generate shadow size classes
+@mixin generate-shadow-sizes($sizes) {
+    @each $size-name, $size-value in $sizes {
+        .sh-#{$size-name} {
+            --#{$prefix}-shadow-size: #{$size-value};
+        }
+    }
+}
+
+
+// Mixin to generate shadow color classes
+@mixin generate-shadow-colors($colors, $opacities) {
+    @each $color-name, $color-value in $colors {
+        @each $opacity-name, $opacity-value in $opacities {
+            .sh-#{$color-name}-#{$opacity-name} {
+                $opacity-color: rgba($color-value, $opacity-value);
+                --#{$prefix}-shadow-color: #{$opacity-color};
+            }
+        }
+        .sh-#{$color-name} {
+            --#{$prefix}-shadow-color: #{$color-value};
+        }
+
+    }
+}

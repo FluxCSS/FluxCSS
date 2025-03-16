@@ -1,0 +1,10 @@
+// Class for default shadow
+.sh {
+    box-shadow: var(--#{$prefix}-shadow-size) var(--#{$prefix}-shadow-color);
+}
+
+// Generate shadow size classes
+@include generate-shadow-sizes($shadow-sizes);
+
+// Generate shadow color classes
+@include generate-shadow-colors($all-colors, $opacities);

@@ -6,10 +6,16 @@
  * Licensed under GPL (https://github.com/Nouvelle-Techno-fr/FluxCSS/blob/main/LICENSE)
  */
 // Comprehensive reset for HTML elements
-// Mixin pour générer des variables CSS
-@mixin generate-css-vars($vars) {
-    @each $key, $value in $vars {
+// Function to convert hex to rgb
+@function hex-to-rgb($color) {
+    @return red($color) green($color) blue($color);
+}
+
+// Mixin to generate CSS variables
+@mixin generate-css-vars($colors) {
+    @each $key, $value in $colors {
         --#{$prefix}-#{$key}: #{$value};
+        --#{$prefix}-rgb-#{$key}: #{rgb(hex-to-rgb($value))};
     }
 }
 
@@ -25,6 +31,8 @@
     );
 
     --#{$prefix}-border-color: #{$border-color};
+    --#{$prefix}-shadow-color: #{$default-shadow-color};
+    --#{$prefix}-shadow-size: #{$default-shadow-size};
 
 }
 

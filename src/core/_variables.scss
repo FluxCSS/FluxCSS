@@ -49,7 +49,7 @@ $palette-colors: (
 );
 
 // Activate all colors palette
-$use-all-colors: true;
+$use-all-colors: false;
 
 // Color variations (min 10 max 100)
 $color-variants: (
@@ -129,3 +129,30 @@ $border-color: #999999;
 
 // Variable for the default border width
 $border-width: 1px;
+
+
+// Shadows
+// Variables for box shadow sizes
+$shadow-sizes: (
+    sm: 1px 1px 2px,
+    md: 4px 4px 8px,
+    lg: 8px 8px 16px,
+    xl: 12px 12px 24px
+);
+// Default shadow color
+$default-shadow-color: rgba(0, 0, 0, 0.4);
+
+// Default shadow size
+$default-shadow-size: 1px 1px 2px;
+// Opacity levels
+$opacities: (
+    1: 0.1,
+    2: 0.2,
+    3: 0.3,
+    4: 0.4,
+    5: 0.5,
+    6: 0.6,
+    7: 0.7,
+    8: 0.8,
+    9: 0.9
+);
