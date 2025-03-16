@@ -19,6 +19,8 @@
         $all-colors
     );
 
+    --#{$prefix}-border-color: #{$border-color};
+
 }
 
 // Box-sizing: Use border-box for all elements
@@ -114,7 +116,6 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 
@@ -282,7 +283,6 @@ hr {
 abbr[title] {
     border-bottom: none;
     text-decoration: underline;
-    text-decoration: underline dotted;
 }
 
 // Remove default b, strong styles

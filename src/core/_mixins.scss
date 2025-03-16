@@ -89,3 +89,45 @@
         @return darken($color, $amount);
     }
 }
+
+// Mixin to generate border classes for different widths
+@mixin generate-border-widths($sides, $widths) {
+    @each $side-name, $side-prop in $sides {
+        @each $width-name, $width-value in $widths {
+            @if ($side-prop == '') {
+                // Class for all sides with a specific width
+                .b-#{$width-name} {
+                    border-width: $width-value !important;
+                }
+            } @else {
+                // Class for a specific side with a specific width
+                .b#{$side-name}-#{$width-name} {
+                    @if $side-prop == 'start' {
+                        border-inline-start-width: $width-value !important;
+                    } @else if $side-prop == 'end' {
+                        border-inline-end-width: $width-value !important;
+                    } @else {
+                        border-#{$side-prop}-width: $width-value !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mixin to generate negative border classes
+@mixin generate-negative-borders($sides) {
+    @each $side-name, $side-prop in $sides {
+        @if ($side-prop != '') {
+            .b#{$side-name}-0 {
+                @if $side-prop == 'start' {
+                    border-inline-start: none;
+                } @else if $side-prop == 'end' {
+                    border-inline-end: none;
+                } @else {
+                    border-#{$side-prop}: none;
+                }
+            }
+        }
+    }
+}

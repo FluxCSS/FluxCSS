@@ -103,3 +103,29 @@ $spacing: (
     7: $spacer * 4,    // 64px
     8: $spacer * 5     // 80px
 ) !default;
+
+// Borders
+// Border widths variable
+$border-widths: (
+    1: 1px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px,
+    6: 6px,
+    7: 7px,
+    8: 8px
+);
+// Generate border classes for each side
+$border-sides: (
+    all: '', // For border (all sides)
+    t: 'top',
+    b: 'bottom',
+    s: 'start',
+    e: 'end'
+);
+// Default border color
+$border-color: #999999;
+
+// Variable for the default border width
+$border-width: 1px;

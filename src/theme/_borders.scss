@@ -1,0 +1,29 @@
+// Class to apply a border to all sides
+.b {
+    border: $border-width solid var(--#{$prefix}-border-color);
+}
+
+// Class to apply a border to the top side
+.bt {
+    border-top: $border-width solid var(--#{$prefix}-border-color);
+}
+
+// Class to apply a border to the bottom side
+.bb {
+    border-bottom: $border-width solid var(--#{$prefix}-border-color);
+}
+
+// Class to apply a border to the start side (logical property)
+.bs {
+    border-inline-start: $border-width solid var(--#{$prefix}-border-color);
+}
+
+// Class to apply a border to the end side (logical property)
+.be {
+    border-inline-end: $border-width solid var(--#{$prefix}-border-color);
+}
+
+@include generate-border-widths($border-sides, $border-widths);
+@include generate-negative-borders($border-sides);
+
+
