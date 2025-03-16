@@ -1,5 +1,10 @@
 @use 'sass:map';
-
+@charset "UTF-8";
+/*!
+ * FluxCSS v0.0.1 (https://fluxcss.org/)
+ * Copyright 2025 Nouvelle-Techno.fr
+ * Licensed under GPL (https://github.com/Nouvelle-Techno-fr/FluxCSS/blob/main/LICENSE)
+ */
 // Comprehensive reset for HTML elements
 // Mixin pour générer des variables CSS
 @mixin generate-css-vars($vars) {
