@@ -1,0 +1,59 @@
+
+// Base styles for tables
+.table {
+    width: $table-width;
+    border-collapse: collapse;
+
+    th, td {
+        padding: $cell-padding;
+        text-align: left;
+        border-bottom: 1px solid $border-color;
+    }
+
+    th {
+        background-color: $header-bg-color;
+        font-weight: bold;
+    }
+}
+
+// Responsive table
+.table-responsive {
+    overflow-x: auto;
+}
+
+
+// Bordered table
+.table-bordered {
+    @extend .table;
+    @include border($border-color);
+
+    th, td {
+        @include border($border-color);
+    }
+}
+
+// Compact table
+.table-compact {
+    th, td {
+        padding: $compact-padding;
+    }
+}
+
+// Centered text
+.table-center {
+    th, td {
+        text-align: center;
+    }
+}
+
+// Right-aligned text
+.table-right {
+    th, td {
+        text-align: right;
+    }
+}
+
+// Generate table styles for each color
+@each $color-name, $color in $all-colors {
+    @include table-color-variant($color-name, $color);
+}

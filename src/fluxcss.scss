@@ -1,15 +1,27 @@
 // Main framework file that imports all other SCSS files
+//////// Core files
 @import 'core/variables';
 @import 'core/reset';
 @import 'core/mixins';
 
+//////// Layout files
 @import 'layout/grid';
 
+//////// Theme files
 @import 'theme/colors';
 @import 'theme/borders';
 @import 'theme/shadows';
 @import 'theme/typos';
 @import 'theme/radius';
 @import 'theme/images';
+@import 'theme/tables';
+@import 'theme/figures';
+
+//////// Components files
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/breadcrumbs';
 @import 'components/buttons';
+
+//////// Utilities files
 @import 'utilities/helpers';

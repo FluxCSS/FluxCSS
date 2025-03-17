@@ -2,40 +2,41 @@
 @each $key, $value in $border-radius-scale {
     .r-#{$key} {
         --#{$prefix}-border-radius: #{$value};
-        border-radius: var(--#{$prefix}-border-radius);
+        border-radius: var(--#{$prefix}-border-radius) !important;
     }
 }
 
 // Utility classes for specific corners
 .r-top {
-    border-radius: 0;
-    border-top-left-radius: var(--#{$prefix}-border-radius, 6px);
-    border-top-right-radius: var(--#{$prefix}-border-radius, 6px);
+    border-radius: 0 !important;
+    border-top-left-radius: var(--#{$prefix}-border-radius, 6px) !important;
+    border-top-right-radius: var(--#{$prefix}-border-radius, 6px) !important;
 }
 
 .r-end {
-    border-radius: 0;
-    border-start-end-radius: var(--#{$prefix}-border-radius, 6px);
-    border-end-end-radius: var(--#{$prefix}-border-radius, 6px);
+    border-radius: 0 !important;
+    border-start-end-radius: var(--#{$prefix}-border-radius, 6px) !important;
+    border-end-end-radius: var(--#{$prefix}-border-radius, 6px) !important;
 }
 
 .r-bottom {
-    border-radius: 0;
-    border-bottom-left-radius: var(--#{$prefix}-border-radius, 6px);
-    border-bottom-right-radius: var(--#{$prefix}-border-radius, 6px);
+    border-radius: 0 !important;
+    border-bottom-left-radius: var(--#{$prefix}-border-radius, 6px) !important;
+    border-bottom-right-radius: var(--#{$prefix}-border-radius, 6px) !important;
 }
 
 .r-start {
-    border-radius: 0;
-    border-start-start-radius: var(--#{$prefix}-border-radius, 6px);
-    border-end-start-radius: var(--#{$prefix}-border-radius, 6px);
+    border-radius: 0 !important;
+    border-start-start-radius: var(--#{$prefix}-border-radius, 6px) !important;
+    border-end-start-radius: var(--#{$prefix}-border-radius, 6px) !important;
 }
 
 // Utility classes for circular and pill shapes
 .r-circle {
-    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50% !important;
 }
 
 .r-pill {
-    border-radius: 9999px;
+    border-radius: 9999px !important;
 }

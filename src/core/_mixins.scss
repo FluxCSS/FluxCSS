@@ -157,3 +157,32 @@
 
     }
 }
+
+// Mixin for tables border
+@mixin border($color) {
+    border: 1px solid $color;
+}
+
+// Mixin for generating table styles based on color
+@mixin table-color-variant($color-name, $color) {
+    .table-#{$color-name} {
+        th {
+            background-color: $color;
+            color: darken($color, 60%);
+        }
+
+        // Striped rows dependent on color
+        &.table-striped tbody tr {
+            &:nth-child(even) {
+                background-color: lighten($color, 25%);
+            }
+        }
+
+        // Hover effect dependent on color
+        &.table-hover tbody tr {
+            &:hover {
+                background-color: lighten($color, 20%);
+            }
+        }
+    }
+}

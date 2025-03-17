@@ -1,0 +1,48 @@
+// Base styles for breadcrumb
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    // Breadcrumb item
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+
+        & + .breadcrumb-item::before {
+            content: "/";
+            margin: 0 $breadcrumb-separator-margin;
+        }
+
+        // Link styles
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        // Active item
+        &.active {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}
+
+// Breadcrumb with arrow separator
+.breadcrumb-arrow {
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: "→";
+    }
+}
+
+// Breadcrumb with dot separator
+.breadcrumb-dot {
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: "•";
+    }
+}

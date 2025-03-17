@@ -1,0 +1,34 @@
+// Base styles for figure
+.figure {
+    position: relative;
+    margin: 0;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    // Caption below the image
+    &.caption-below {
+        figcaption {
+            padding: $caption-padding;
+            text-align: center;
+            color: $caption-text-color;
+        }
+    }
+
+    // Caption overlay at the bottom of the image
+    &.caption-overlay {
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: $caption-padding;
+            background-color: $caption-bg-color;
+            color: $caption-text-color;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    }
+}

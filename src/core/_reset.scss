@@ -35,6 +35,8 @@
     --#{$prefix}-shadow-size: #{$default-shadow-size};
     --#{$prefix}-font-family: #{$base-font-family};
     --#{$prefix}-border-radius: #{$base-border-radius};
+    --#{$prefix}-link-color: #{$primary};
+
 }
 
 /* Box-sizing */
@@ -100,7 +102,7 @@ table {
 
 /* Remove default styles for links */
 a {
-    color: inherit;
+    color: var(--#{$prefix}-link-color);
     text-decoration: none;
 }
 

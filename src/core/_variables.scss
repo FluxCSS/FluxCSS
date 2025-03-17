@@ -224,3 +224,23 @@ $border-radius-scale: (
 );
 
 $base-border-radius: 6px;
+
+
+// Tables
+$table-width: 100%;
+$cell-padding: 12px;
+$border-color: #ddd;
+$header-bg-color: #f4f4f4;
+$stripe-color: #f9f9f9;
+$hover-color: #f1f1f1;
+$compact-padding: 8px;
+
+
+// Variables for figure and caption
+$caption-padding: 10px;
+$caption-bg-color: rgba(0, 0, 0, 0.5);
+$caption-text-color: #fff;
+
+// Variables for breadcrumb
+$breadcrumb-separator-color: #6c757d;
+$breadcrumb-separator-margin: 0.5rem;

@@ -173,3 +173,105 @@
         max-height: #{$value}vh;
     }
 }
+
+
+// Text alignment helpers
+.text-start {
+    text-align: start !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-end {
+    text-align: end !important;
+}
+
+
+// Positioning helpers
+.pos-static {
+    position: static;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.pos-fixed {
+    position: fixed;
+}
+
+.pos-sticky {
+    position: sticky;
+}
+
+// Top positioning
+.top-0 {
+    top: 0;
+}
+
+.top-50 {
+    top: 50%;
+}
+
+.top-100 {
+    top: 100%;
+}
+
+// End positioning
+.end-0 {
+    inset-inline-end: 0;
+}
+
+.end-50 {
+    inset-inline-end: 50%;
+}
+
+.end-100 {
+    inset-inline-end: 100%;
+}
+
+// Bottom positioning
+.bottom-0 {
+    bottom: 0;
+}
+
+.bottom-50 {
+    bottom: 50%;
+}
+
+.bottom-100 {
+    bottom: 100%;
+}
+
+// Start positioning
+.start-0 {
+    inset-inline-start: 0;
+}
+
+.start-50 {
+    inset-inline-start: 50%;
+}
+
+.start-100 {
+    inset-inline-start: 100%;
+}
+
+// Translate helpers
+.translate-x-middle {
+    transform: translateX(-50%);
+}
+
+.translate-y-middle {
+    transform: translateY(-50%);
+}
+
+.translate-middle {
+    transform: translate(-50%, -50%);
+}
+
