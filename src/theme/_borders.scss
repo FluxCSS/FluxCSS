@@ -25,3 +25,4 @@
 
 @include generate-border-widths($border-sides, $border-widths);
 @include generate-negative-borders($border-sides);
+@include generate-border-colors($all-colors, $opacities);

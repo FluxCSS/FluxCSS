@@ -1,0 +1,127 @@
+// Base styles for carousel
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: $carousel-border-radius;
+
+    .elements {
+        display: flex;
+        position: relative;
+
+        .element {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+
+            &.active {
+                position: static;
+                opacity: 1;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: $carousel-border-radius;
+            }
+
+            .carousel-caption {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 1rem;
+                border-radius: 0.5rem;
+
+                h2 {
+                    margin-top: 0;
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    margin-bottom: 0;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    // Navigation buttons with embedded SVG
+    .chevron {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: $carousel-text-color;
+        padding: 1rem;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .chevron-left {
+        left: 1rem;
+
+        &.chevron-light::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+        }
+
+        &.chevron-dark::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+        }
+    }
+
+    .chevron-right {
+        right: 1rem;
+
+        &.chevron-light::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>');
+        }
+
+        &.chevron-dark::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>');
+        }
+    }
+
+    // Indicators
+    #indicators {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+
+        .indicator {
+            width: $indicator-size;
+            height: $indicator-size;
+            border-radius: 50%;
+            background-color: $indicator-color;
+            cursor: pointer;
+
+            &.active {
+                background-color: $indicator-active-color;
+            }
+        }
+    }
+}

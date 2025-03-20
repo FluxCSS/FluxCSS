@@ -1,0 +1,87 @@
+// Base styles for accordion
+.accordion {
+    border: 1px solid $accordion-border-color;
+    border-radius: var(--#{$prefix}-border-radius, 6px);
+    overflow: hidden;
+
+    // Styles for details element
+    details {
+        &[open] {
+            summary {
+                background-color: darken($accordion-header-bg-color, 5%);
+                &::after {
+                    transform: rotate(45deg);
+                    transform-origin: center center;
+                }
+            }
+        }
+        // Styles for summary element
+        summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: $accordion-summary-padding;
+            background-color: $accordion-header-bg-color;
+            color: $accordion-header-color;
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none;
+            border-bottom: 1px solid $accordion-border-color;
+
+            // Custom marker for open/close state
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &::after {
+                content: "";
+                width: 1.25rem;
+                height: 1.25rem;
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/></svg>');
+                background-size: contain;
+                background-repeat: no-repeat;
+                transition: transform 0.3s;
+            }
+        }
+
+        // Styles for accordion body
+        .accordion-body {
+            padding: $accordion-body-padding;
+            background-color: $accordion-body-bg-color;
+            color: $accordion-body-color;
+            border-top: 1px solid $accordion-border-color;
+        }
+    }
+}
+
+// Mixin for generating accordion color variants
+@mixin accordion-color-variant($color-name, $color) {
+    .accordion-#{$color-name} {
+        details summary {
+            background-color: lighten($color, 30%);
+            color: darken($color, 30%);
+        }
+
+        details[open] summary {
+            background-color: darken(lighten($color, 30%), 5%);
+        }
+
+        details summary::after {
+            color: darken($color, 30%);
+        }
+
+        details[open] summary::after {
+            color: darken($color, 30%);
+        }
+
+        .accordion-body {
+            background-color: lighten($color, 45%);
+            color: darken($color, 30%);
+        }
+    }
+}
+
+// Generate accordion color variants
+@each $color-name, $color in $all-colors {
+    @include accordion-color-variant($color-name, $color);
+}

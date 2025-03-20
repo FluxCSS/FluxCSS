@@ -1,5 +1,5 @@
 // Global variables for the framework
-$prefix: 'fs';
+$prefix: 'fx';
 
 // Base font settings
 $base-font-size: 16px;
@@ -39,12 +39,10 @@ $line-height-base: 1.5;
 $primary: #5f3a82;
 $secondary: #82a35f;
 $tertiary: #a3826b;
-
 $success: #4caf50;
 $warning: #f0ad4e;
 $danger: #d9534f;
 $info: #5bc0de;
-
 $light: #f9f9f9;
 $dark: #333333;
 
@@ -244,3 +242,52 @@ $caption-text-color: #fff;
 // Variables for breadcrumb
 $breadcrumb-separator-color: #6c757d;
 $breadcrumb-separator-margin: 0.5rem;
+
+// Variables for accordion
+$accordion-border-color: #ddd;
+$accordion-header-bg-color: #f8f9fa;
+$accordion-header-color: #343a40;
+$accordion-body-bg-color: #fff;
+$accordion-body-color: #212529;
+$accordion-summary-padding: 1rem;
+$accordion-body-padding: 1rem;
+
+// Variables for card styles
+$card-border-color: #ddd;
+$card-border-radius: 0.25rem;
+$card-padding: 1rem;
+$card-bg-color: #fff;
+$card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+// Display utilities map
+$displays: (
+    none: none,
+    inline: inline,
+    inline-block: inline-block,
+    block: block,
+    flex: flex,
+    inline-flex: inline-flex,
+    grid: grid,
+    inline-grid: inline-grid,
+);
+
+
+// Default navbar styles
+$navbar-bg-color: darken($light, 10%);
+$navbar-text-color: $dark;
+$navbar-hover-bg-color: darken($navbar-bg-color, 10%);
+$navbar-hover-text-color: lighten($navbar-text-color, 10%);
+$navbar-padding: 1rem;
+$navbar-border-radius: 0.25rem;
+
+
+// Variables for carousel styles
+$carousel-bg-color: #f1f1f1;
+$carousel-text-color: #333;
+$carousel-padding: 1rem;
+$carousel-border-radius: 0.5rem;
+$carousel-transition: opacity 0.5s ease-in-out;
+$indicator-color: #ccc;
+$indicator-active-color: #333;
+$indicator-size: 0.75rem;

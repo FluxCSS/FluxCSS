@@ -158,6 +158,21 @@
     }
 }
 
+// Mixin to generate shadow color classes
+@mixin generate-border-colors($colors, $opacities) {
+    @each $color-name, $color-value in $colors {
+        @each $opacity-name, $opacity-value in $opacities {
+            .b-#{$color-name}-#{$opacity-name} {
+                $opacity-color: rgba($color-value, $opacity-value);
+                --#{$prefix}-border-color: #{$opacity-color};
+            }
+        }
+        .b-#{$color-name} {
+            --#{$prefix}-border-color: #{$color-value};
+        }
+    }
+}
+
 // Mixin for tables border
 @mixin border($color) {
     border: 1px solid $color;
@@ -183,6 +198,76 @@
             &:hover {
                 background-color: lighten($color, 20%);
             }
+        }
+    }
+}
+
+
+// Mixin for generating accordion color variants
+@mixin accordion-color-variant($color-name, $color) {
+    .accordion-#{$color-name} {
+        details summary {
+            background-color: lighten($color, 30%);
+            color: darken($color, 30%);
+        }
+
+        details[open] summary {
+            background-color: darken(lighten($color, 30%), 5%);
+        }
+
+        details summary::after {
+            color: darken($color, 30%);
+        }
+
+        details[open] summary::after {
+            color: darken($color, 30%);
+        }
+
+        .accordion-body {
+            background-color: lighten($color, 45%);
+            color: darken($color, 30%);
+        }
+    }
+}
+
+// Mixin to generate display utilities
+@mixin generate-display-utilities($breakpoint: null) {
+    @each $name, $value in $displays {
+        @if ($breakpoint == null) {
+            .d-#{$name} {
+                display: $value !important;
+            }
+        } @else {
+            @media (min-width: map-get($breakpoints, $breakpoint)) {
+                .d-#{$breakpoint}-#{$name} {
+                    display: $value !important;
+                }
+            }
+        }
+    }
+}
+
+
+// Mixin for generating navbar color variants
+@mixin navbar-color-variant($color-name, $color) {
+    .navbar-#{$color-name} {
+        background-color: $color;
+        color: get-contrast-color($color);
+
+        .nav-item {
+            &:hover {
+                background-color: darken($color, 10%);
+                color: get-contrast-color(darken($color, 10%));
+            }
+        }
+
+        .burger-icon {
+            background-color: get-contrast-color($color);
+        }
+
+        .nav-list {
+            background-color: $color;
+            color: get-contrast-color($color);
         }
     }
 }

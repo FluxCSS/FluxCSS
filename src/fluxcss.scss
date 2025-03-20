@@ -18,10 +18,15 @@
 @import 'theme/figures';
 
 //////// Components files
+@import 'components/accordions';
 @import 'components/alerts';
 @import 'components/badges';
 @import 'components/breadcrumbs';
 @import 'components/buttons';
+@import 'components/cards';
+@import 'components/carousels';
+@import 'components/navbars';
 
 //////// Utilities files
 @import 'utilities/helpers';
+@import 'utilities/displays';

@@ -1,0 +1,121 @@
+// Base styles for navbar
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $navbar-bg-color;
+    color: $navbar-text-color;
+    padding: $navbar-padding;
+    border-radius: $navbar-border-radius;
+    position: relative;
+    margin: 15px;
+    border-radius: 9999px;
+
+    > .container-fixed{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $navbar-hover-bg-color;
+                color: $navbar-hover-text-color;
+            }
+        }
+    }
+
+    .burger-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+
+        .burger-icon {
+            width: 2rem;
+            height: 0.25rem;
+            background-color: $navbar-text-color;
+            margin: 0.25rem 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+    }
+    // Positioning classes for the navbar
+    &.fixed-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+    }
+
+    &.fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+    }
+
+    &.sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+    }
+    // Mobile styles
+    @each $breakpoint, $width in $breakpoints {
+        @media (max-width: $width) {
+            &.nav-exp-#{$breakpoint} {
+                .nav-list {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    width: 100%;
+                    background-color: inherit;
+                    border-radius: $navbar-border-radius;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    z-index: 1000;
+
+                    .nav-item {
+                        width: 100%;
+                        text-align: right;
+                    }
+                }
+
+                .burger-menu {
+                    display: flex;
+                }
+
+                .burger-menu:focus-within + .nav-list,
+                .burger-menu:hover + .nav-list {
+                    display: flex;
+                }
+
+                // Styles for open menu
+                .nav-list.open {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+// Generate navbar color variants
+@each $color-name, $color in $all-colors {
+    @include navbar-color-variant($color-name, $color);
+}

@@ -118,7 +118,15 @@
 }
 
 .mx-auto{
-    margin-inline: auto
+    margin-inline: auto !important;
+}
+
+.ms-auto{
+    margin-inline-start: auto !important;
+}
+
+.me-auto{
+    margin-inline-end: auto !important;
 }
 
 // Generate width utility classes

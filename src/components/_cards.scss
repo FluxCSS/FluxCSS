@@ -1,0 +1,46 @@
+// Base styles for card
+.card {
+    border: 1px solid $card-border-color;
+    border-radius: $card-border-radius;
+    background-color: $card-bg-color;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    // Image on top style
+    .card-img-top {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    // Card body styles
+    .card-body {
+        padding: $card-padding;
+
+        .card-title {
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        .card-text {
+            margin-bottom: 0;
+            color: #666;
+        }
+    }
+}
+
+
+// Horizontal card
+.card-horizontal {
+    flex-direction: row;
+
+    img {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        border-right: 1px solid $card-border-color;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+    }
+}
+

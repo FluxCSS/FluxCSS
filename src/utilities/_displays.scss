@@ -1,0 +1,9 @@
+
+
+// Generate base display utilities
+@include generate-display-utilities();
+
+// Generate responsive display utilities for each breakpoint
+@each $breakpoint, $width in $breakpoints {
+    @include generate-display-utilities($breakpoint);
+}
