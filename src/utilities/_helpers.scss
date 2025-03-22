@@ -115,6 +115,10 @@
     .py-#{$key} {
         padding-block: $value;
     }
+
+    .gap-#{$key}{
+        gap: $value;
+    }
 }
 
 .mx-auto{

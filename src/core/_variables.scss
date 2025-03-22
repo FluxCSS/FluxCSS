@@ -36,15 +36,17 @@ $line-height-base: 1.5;
 
 // Primary and secondary colors
 // Color palette variables
-$primary: #5f3a82;
-$secondary: #82a35f;
-$tertiary: #a3826b;
+$primary: #1E3A8A;
+$secondary: #A9A9A9;
+$tertiary: #98FB98;
 $success: #4caf50;
 $warning: #f0ad4e;
 $danger: #d9534f;
 $info: #5bc0de;
 $light: #f9f9f9;
 $dark: #333333;
+$white: #ffffff;
+$black: #000000;
 
 
 // Theme colors
@@ -58,14 +60,14 @@ $theme-colors: (
     "info":         $info,
     "light":        $light,
     "dark":         $dark,
+    "white":        $white,
+    "black":        $black
 );
 
 // Basic palette colors
 $palette-colors: (
-    "white": #FFFFFF,
     "silver": #C0C0C0,
     "gray": #808080,
-    "black": #000000,
     "red": #FF0000,
     "maroon": #800000,
     "yellow": #FFFF00,
