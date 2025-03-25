@@ -1,5 +1,5 @@
 {
-  "name": "@nouvelletechno/fluxcss",
+  "name": "@fluxcss/fluxcss",
   "version": "0.0.4",
   "description": "Flexible, Mobile First, Responsive CSS Framework",
   "keywords": [
@@ -9,16 +9,16 @@
     "mobile",
     "first"
   ],
-  "homepage": "https://github.com/Nouvelle-Techno-fr/FluxCSS#readme",
+  "homepage": "https://github.com/FluxCSS/FluxCSS#readme",
   "bugs": {
-    "url": "https://github.com/Nouvelle-Techno-fr/FluxCSS/issues"
+    "url": "https://github.com/FluxCSS/FluxCSS/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nouvelle-Techno-fr/FluxCSS.git"
+    "url": "git+https://github.com/FluxCSS/FluxCSS.git"
   },
   "license": "GPL-3.0-or-later",
-  "author": "Nouvelle-Techno.fr",
+  "author": "FluxCSS.org",
   "type": "commonjs",
   "main": "package.js",
   "directories": {

@@ -1,9 +1,9 @@
 # FluxCSS
 
-![CSS Brotli Size](https://img.badgesize.io/Nouvelle-Techno-fr/FluxCSS/main/dist/css/fluxcss.min.css?compression=brotli&label=CSS%20Brotli%20size)
+![CSS Brotli Size](https://img.badgesize.io/FluxCSS/FluxCSS/main/dist/css/fluxcss.min.css?compression=brotli&label=CSS%20Brotli%20size)
 
-![NPM](https://img.shields.io/npm/v/@nouvelletechno/fluxcss?logo=npm&logoColor=fff)
-![NPM](https://img.shields.io/npm/dt/@nouvelletechno/fluxcss?logo=npm&logoColor=fff)
+![NPM](https://img.shields.io/npm/v/@fluxcss/fluxcss?logo=npm&logoColor=fff)
+![NPM](https://img.shields.io/npm/dt/@fluxcss/fluxcss?logo=npm&logoColor=fff)
 
 The CSS file `fluxcss.css` contains a comprehensive set of styles for a CSS framework named FluxCSS. Here's a breakdown of its key components and features:
 
