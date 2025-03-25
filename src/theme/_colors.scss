@@ -15,8 +15,8 @@ $all-colors: $theme-colors;
     }
 
     .bg-#{$color-name} {
-        background-color: var(--#{$prefix}-#{$color-name});
-        color: get-contrast-color($color-value);
+        background-color: var(--#{$prefix}-#{$color-name}) !important;
+        color: get-contrast-color($color-value) !important;
     }
 }
 
@@ -35,8 +35,8 @@ $all-colors: $theme-colors;
         $bg-color: if($variant == 0, white, mix(white, $base-color, $white-percentage));
 
         .bg-#{$color-name}-#{$variant} {
-            background-color: $bg-color;
-            color: get-contrast-color($bg-color);
+            background-color: $bg-color !important;
+            color: get-contrast-color($bg-color) !important;
         }
     }
 }

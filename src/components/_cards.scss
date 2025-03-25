@@ -12,7 +12,28 @@
         height: auto;
         object-fit: cover;
     }
+    // Card header
+    .card-header {
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, 0.03);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 
+        &:first-child {
+            border-radius: calc(var(--fx-border-radius, 0.25rem) - 1px) calc(var(--fx-border-radius, 0.25rem) - 1px) 0 0;
+        }
+    }
+
+    // Card footer
+    .card-footer {
+        padding: 0.75rem 1.25rem;
+        background-color: rgba(0, 0, 0, 0.03);
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+
+        &:last-child {
+            border-radius: 0 0 calc(var(--fx-border-radius, 0.25rem) - 1px) calc(var(--fx-border-radius, 0.25rem) - 1px);
+        }
+    }
     // Card body styles
     .card-body {
         padding: $card-padding;

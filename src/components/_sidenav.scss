@@ -7,7 +7,7 @@
 
 // Sidenav styles
 .sidenav {
-    position: sticky;
+    position: absolute;
     top: 0;
     left: 0;
     width: 250px;
@@ -85,6 +85,34 @@
 // Open state for sidenav
 .sidenav.open {
     transform: translateX(0);
+}
+// Color classes
+@each $color-name, $color-value in $all-colors {
+    .sidenav-bg-#{$color-name} {
+        background-color: $color-value !important;
+    }
+
+    .sidenav-text-#{$color-name} {
+        color: $color-value !important;
+    }
+
+    .sidenav-border-#{$color-name} {
+        border-color: $color-value !important;
+    }
+
+    .sidenav-link-#{$color-name} {
+        .sidenav-link {
+            color: $color-value !important;
+            &:hover, &.active {
+                background-color: $color-value !important;
+                color: get-contrast-color($color-value) !important;
+            }
+        }
+    }
+
+    .sidenav-toggle-#{$color-name} {
+        background-color: $color-value !important;
+    }
 }
 
 // Responsive behavior (mobile-first, min-width only)

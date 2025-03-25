@@ -4,12 +4,21 @@
     padding: 1rem;
     border-radius: 0.25rem;
     font-size: 1rem;
-    margin: 1rem;
-    display: block;
+    margin-block: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
 
     // Icon placement
     .alert-icon {
         margin-right: 0.5rem;
+        width: $spacer * 2;
+    }
+
+    .alert-content{
+        p{
+            margin: 0;
+        }
     }
 
     // Close button

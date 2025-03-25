@@ -202,30 +202,15 @@
       // Toggle the 'open' class on the nav-list when burger is clicked
       burgerMenu.addEventListener('click', function() {
         navList.classList.toggle('open');
+        this.classList.toggle('open');
 
-        // Animate burger icon to X when opened
-        const burgerIcons = burgerMenu.querySelectorAll('.burger-icon');
-        if (navList.classList.contains('open')) {
-          burgerIcons[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
-          burgerIcons[1].style.opacity = '0';
-          burgerIcons[2].style.transform = 'rotate(-45deg) translate(8px, -10px)';
-        } else {
-          burgerIcons[0].style.transform = 'none';
-          burgerIcons[1].style.opacity = '1';
-          burgerIcons[2].style.transform = 'none';
-        }
       });
 
       // Close menu when clicking outside
       document.addEventListener('click', function(event) {
         if (!burgerMenu.contains(event.target) && !navList.contains(event.target)) {
           navList.classList.remove('open');
-
-          // Reset burger icon animation
-          const burgerIcons = burgerMenu.querySelectorAll('.burger-icon');
-          burgerIcons[0].style.transform = 'none';
-          burgerIcons[1].style.opacity = '1';
-          burgerIcons[2].style.transform = 'none';
+          burgerMenu.classList.remove('open');
         }
       });
 
@@ -234,12 +219,7 @@
       navItems.forEach(function(navItem) {
         navItem.addEventListener('click', function() {
           navList.classList.remove('open');
-
-          // Reset burger icon animation
-          const burgerIcons = burgerMenu.querySelectorAll('.burger-icon');
-          burgerIcons[0].style.transform = 'none';
-          burgerIcons[1].style.opacity = '1';
-          burgerIcons[2].style.transform = 'none';
+          burgerMenu.classList.remove('open');
         });
       });
 
@@ -255,12 +235,7 @@
       document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && navList.classList.contains('open')) {
           navList.classList.remove('open');
-
-          // Reset burger icon animation
-          const burgerIcons = burgerMenu.querySelectorAll('.burger-icon');
-          burgerIcons[0].style.transform = 'none';
-          burgerIcons[1].style.opacity = '1';
-          burgerIcons[2].style.transform = 'none';
+          burgerMenu.classList.remove('open');
         }
       });
     });
@@ -275,12 +250,7 @@
         // If window is wider than the breakpoint and menu is hidden
         if (window.getComputedStyle(burgerMenu).display === 'none' && navList.classList.contains('open')) {
           navList.classList.remove('open');
-
-          // Reset burger icon animation
-          const burgerIcons = burgerMenu.querySelectorAll('.burger-icon');
-          burgerIcons[0].style.transform = 'none';
-          burgerIcons[1].style.opacity = '1';
-          burgerIcons[2].style.transform = 'none';
+          burgerMenu.classList.remove('open');
         }
       });
     });

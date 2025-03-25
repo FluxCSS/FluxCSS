@@ -53,6 +53,32 @@
     }
 }
 
+// Mixin for generating table styles based on color
+@mixin table-color-variant($color-name, $color) {
+    .table-#{$color-name} {
+        th {
+            background-color: $color;
+            color: get-contrast-color($color);
+        }
+
+        // Striped rows dependent on color
+        &.table-striped tbody tr {
+            &:nth-child(even) {
+                background-color: lighten($color, 20%);
+                color: get-contrast-color($color);
+            }
+        }
+
+        // Hover effect dependent on color
+        &.table-hover tbody tr {
+            &:hover {
+                background-color: lighten($color, 20%);
+                color: get-contrast-color($color);
+            }
+        }
+    }
+}
+
 // Generate table styles for each color
 @each $color-name, $color in $all-colors {
     @include table-color-variant($color-name, $color);
