@@ -212,3 +212,26 @@ h6 { font-size: map-get($font-sizes, 2); }
 p {
     margin-bottom: 1em;
 }
+
+code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    color: #d63384;
+    background-color: #f8f9fa;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+}
+
+pre {
+    code {
+        display: block;
+        padding: 1rem;
+        overflow-x: auto;
+        white-space: pre;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 0.25rem;
+        color: #212529;
+    }
+}

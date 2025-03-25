@@ -45,7 +45,7 @@
 
     @each $breakpoint, $width in $containers-width {
         @include respond-to($breakpoint) {
-            max-width: $width;
+            max-width: $width !important;
         }
     }
 }
@@ -57,6 +57,17 @@
     display: flex;
     flex-wrap: wrap;
     margin-inline: calc(0px - $spacer / 2);
+
+}
+
+// Base flex-direction classes
+@include generate-flex-directions();
+
+// Responsive flex-direction classes
+@each $breakpoint, $width in $containers-width {
+    @include respond-to($breakpoint) {
+        @include generate-flex-directions($breakpoint);
+    }
 }
 
 .col {

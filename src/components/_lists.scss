@@ -1,0 +1,216 @@
+// Basic list styles
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+// Unstyled lists - removes default styling
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+// Inline lists - display items horizontally
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+
+    .list-inline-item {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+// Description lists
+dl {
+    margin-bottom: 1rem;
+}
+
+// Description list titles
+dt {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+// Description list data
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+}
+
+// Horizontal description lists
+.dl-horizontal {
+    @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+
+        dt {
+            width: 30%;
+            padding-right: 1rem;
+            text-align: right;
+        }
+
+        dd {
+            width: 70%;
+            margin-left: 0;
+        }
+    }
+}
+
+// List groups
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: var(--fx-border-radius);
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--fx-white);
+    border: 1px solid var(--fx-border-color);
+
+    &:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+
+    &:not(:first-child) {
+        border-top: 0;
+    }
+
+    &.active {
+        z-index: 2;
+        color: var(--fx-white);
+        background-color: var(--fx-primary);
+        border-color: var(--fx-primary);
+    }
+
+    &.disabled, &:disabled {
+        color: var(--fx-secondary);
+        pointer-events: none;
+        background-color: var(--fx-white);
+    }
+}
+
+// List group with action items
+.list-group-item-action {
+    width: 100%;
+    text-align: inherit;
+    cursor: pointer;
+
+    &:hover, &:focus {
+        z-index: 1;
+        text-decoration: none;
+        background-color: var(--fx-light);
+    }
+
+    &:active {
+        background-color: var(--fx-secondary-20);
+    }
+}
+
+// Flush list groups (no borders)
+.list-group-flush {
+    border-radius: 0;
+
+    .list-group-item {
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}
+
+// Contextual variants
+@each $color-name, $color-value in $all-colors {
+    .list-group-item-#{$color-name} {
+        color: darken($color-value, 30%);
+        background-color: lighten($color-value, 40%);
+
+        &.list-group-item-action {
+            &:hover, &:focus {
+                color: darken($color-value, 30%);
+                background-color: lighten($color-value, 35%);
+            }
+
+            &.active {
+                color: var(--fx-white);
+                background-color: darken($color-value, 30%);
+                border-color: darken($color-value, 30%);
+            }
+        }
+    }
+}
+
+// Horizontal list groups
+.list-group-horizontal {
+    flex-direction: row;
+
+    .list-group-item {
+        &:first-child {
+            border-bottom-left-radius: var(--fx-border-radius);
+            border-top-right-radius: 0;
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--fx-border-radius);
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:last-child) {
+            border-right: 0;
+        }
+
+        &:not(:first-child) {
+            border-left: 0;
+        }
+    }
+}
+
+// Responsive horizontal list groups
+@each $breakpoint in (sm, md, lg, xl, xxl, 3xl) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+        .list-group-horizontal-#{$breakpoint} {
+            flex-direction: row;
+
+            .list-group-item {
+                &:first-child {
+                    border-bottom-left-radius: var(--fx-border-radius);
+                    border-top-right-radius: 0;
+                }
+
+                &:last-child {
+                    border-top-right-radius: var(--fx-border-radius);
+                    border-bottom-left-radius: 0;
+                }
+
+                &:not(:last-child) {
+                    border-right: 0;
+                }
+
+                &:not(:first-child) {
+                    border-left: 0;
+                }
+            }
+        }
+    }
+}

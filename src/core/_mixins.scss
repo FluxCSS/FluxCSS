@@ -271,3 +271,25 @@
         }
     }
 }
+
+// Mixin to generate flex-direction classes
+@mixin generate-flex-directions($breakpoint: null) {
+    $directions: (
+            "row": row,
+            "row-reverse": row-reverse,
+            "column": column,
+            "column-reverse": column-reverse
+    );
+
+    @each $name, $value in $directions {
+        @if $breakpoint == null {
+            .dir-#{$name} {
+                flex-direction: $value !important;
+            }
+        } @else {
+            .dir-#{$breakpoint}-#{$name} {
+                flex-direction: $value !important;
+            }
+        }
+    }
+}

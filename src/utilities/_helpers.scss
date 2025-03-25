@@ -63,6 +63,13 @@
             .gap-#{$breakpoint}-#{$key} {
                 gap: $value;
             }
+            .gap-x-#{$breakpoint}-#{$key} {
+                column-gap: $value !important;
+            }
+
+            .gap-y-#{$breakpoint}-#{$key} {
+                row-gap: $value !important;
+            }
         }
         .mx-#{$breakpoint}-auto {
             margin-inline: auto;
@@ -118,6 +125,13 @@
 
     .gap-#{$key}{
         gap: $value;
+    }
+    .gap-x-#{$key} {
+        column-gap: $value !important;
+    }
+
+    .gap-y-#{$key} {
+        row-gap: $value !important;
     }
 }
 
