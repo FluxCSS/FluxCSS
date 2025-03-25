@@ -5,37 +5,71 @@
 ![NPM](https://img.shields.io/npm/v/@fluxcss/fluxcss?logo=npm&logoColor=fff)
 ![NPM](https://img.shields.io/npm/dt/@fluxcss/fluxcss?logo=npm&logoColor=fff)
 
-The CSS file `fluxcss.css` contains a comprehensive set of styles for a CSS framework named FluxCSS. Here's a breakdown of its key components and features:
+<p align="center"><img src="https://fluxcss.org/assets/logos/logo.svg" width="150" alt="fluxcss logo"></p>
 
-## General Structure
-- **Root Variables**: Defines a set of color variables using CSS custom properties for easy theming and consistent design.
-- **Global Styles**: Applies basic styles to HTML elements, including margin, padding, and box-sizing reset.
+FluxCSS is a lightweight and flexible CSS framework designed to simplify modern web development. Visit our official website: https://fluxcss.org
 
-## Layout System
-- **Container System**: Provides a responsive grid system with classes like `.container` and `.container-fixed` for fixed-width containers.
-- **Flexbox System**: Utilizes flexbox for layout management with classes for direction, alignment, and wrapping.
-- **Grid System**: Implements a 12-column grid system with responsive breakpoints for various screen sizes (e.g., `.col-md-6` for medium screens).
+## Key Features
 
-## Responsive Design
-- **Responsive Utility Classes**: Includes utility classes for margin (`.m-`), padding (`.p-`), and border (`.b-`) with responsive variations.
-- **Media Queries**: Contains media queries for different screen sizes to apply styles conditionally.
+- Responsive grid system based on Flexbox and CSS Grid
+- Customizable color palette with variations
+- Pre-designed UI components (buttons, alerts, badges, etc.)
+- Utilities for typography, borders, shadows, and more
+- Modular approach for easy customization
 
-## Color and Typography
-- **Color Variations**: Offers a range of color classes for text and background colors, including primary, secondary, and various shades.
-- **Typography**: Defines font sizes, weights, and styles for text elements.
+## Installation
 
-## Buttons and Forms
-- **Buttons**: Styles buttons with different colors, sizes, and states (hover, active).
-- **Forms**: Provides basic styling for form elements like inputs and textareas.
+To use FluxCSS in your project, you can either:
 
-## Utility Classes
-- **Border and Box Shadow**: Classes for border styles and box shadows.
-- **Display Utilities**: Classes for display properties like `.d-none` for `display: none;`.
+1. Download the CSS files from this repository
+2. Use a CDN
+```html
+<link rel="stylesheet" href="https://app.unpkg.com/@fluxcss/fluxcss@0.0.5/files/dist/css/fluxcss.min.css">
+```
+3. Install via npm
+```bash
+npm i @fluxcss/fluxcss
+```
+## Usage
 
-## Advanced Features
-- **Responsive Visibility**: Classes to show or hide elements based on screen size (e.g., `.d-md-block` to display as block on medium screens).
-- **Flex and Grid Utilities**: Additional classes for advanced layout techniques using flexbox and grid.
+Include the CSS file in your HTML project:
 
-## Licence
+```
+<link rel="stylesheet" href="path/to/fluxcss.css">
+```
 
-FluxCSS est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+## Customization
+
+FluxCSS uses CSS variables for easy customization. Modify the values in the `:root` section of the CSS file to adapt the framework to your design.
+
+## Documentation
+
+Comprehensive documentation is currently under development. In the meantime, you can refer to the comments in the CSS file to understand the usage of various classes and components.
+
+## Examples
+
+```html
+<div class="container">
+  <div class="row">
+    <div class="col s-12 s-md-6 s-lg-4">
+      <button class="btn btn-primary">Primary Button</button>
+    </div>
+    <div class="col s-12 s-md-6 s-lg-4">
+      <div class="alert alert-success">
+        Success Alert
+      </div>
+    </div>
+    <div class="col s-12 s-lg-4">
+      <span class="badge badge-info">Info Badge</span>
+    </div>
+  </div>
+</div>
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## License
+
+FluxCSS is licensed under the GPL License. See the [LICENSE](LICENSE) file for more details.
