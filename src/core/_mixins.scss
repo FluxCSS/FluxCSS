@@ -11,6 +11,38 @@
     }
 }
 
+// Sort breakpoints in descending order for proper specificity
+@function sort-breakpoints($breakpoints) {
+    $sorted-keys: ();
+    $sorted-map: ();
+
+    // Get all keys
+    @each $key, $value in $breakpoints {
+        $sorted-keys: append($sorted-keys, $key);
+    }
+
+    // Sort keys by their values in descending order
+    @for $i from 1 through length($sorted-keys) {
+        @for $j from $i through length($sorted-keys) {
+            $key-i: nth($sorted-keys, $i);
+            $key-j: nth($sorted-keys, $j);
+
+            @if map-get($breakpoints, $key-i) < map-get($breakpoints, $key-j) {
+                $temp: $key-i;
+                $sorted-keys: set-nth($sorted-keys, $i, $key-j);
+                $sorted-keys: set-nth($sorted-keys, $j, $temp);
+            }
+        }
+    }
+
+    // Create new map with sorted keys
+    @each $key in $sorted-keys {
+        $sorted-map: map-merge($sorted-map, ($key: map-get($breakpoints, $key)));
+    }
+
+    @return $sorted-map;
+}
+
 // Mixin for creating a flexible container
 @mixin make-container($max-width: 100%) {
     width: 100%;
@@ -224,29 +256,6 @@
 }
 
 
-// Mixin for generating navbar color variants
-@mixin navbar-color-variant($color-name, $color) {
-    .navbar-#{$color-name} {
-        background-color: $color;
-        color: get-contrast-color($color);
-
-        .nav-item {
-            &:hover {
-                background-color: darken($color, 10%);
-                color: get-contrast-color(darken($color, 10%));
-            }
-        }
-
-        .burger-icon {
-            background-color: get-contrast-color($color);
-        }
-
-        .nav-list {
-            background-color: $color;
-            color: get-contrast-color($color);
-        }
-    }
-}
 
 // Mixin to generate flex-direction classes
 @mixin generate-flex-directions($breakpoint: null) {

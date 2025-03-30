@@ -4,6 +4,14 @@ ul, ol {
     padding-left: 2rem;
 }
 
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
 // Unstyled lists - removes default styling
 .list-unstyled {
     padding-left: 0;
@@ -23,22 +31,67 @@ ul, ol {
         }
     }
 }
+// Custom bullet styles for unordered lists
+.list-bullet-circle {
+    list-style-type: circle;
+}
+
+.list-bullet-square {
+    list-style-type: square;
+}
+
+.list-bullet-disc {
+    list-style-type: disc;
+}
+
+// Custom numbered styles for ordered lists
+.list-number-decimal {
+    list-style-type: decimal;
+}
+
+.list-number-roman {
+    list-style-type: upper-roman;
+}
+
+.list-number-alpha {
+    list-style-type: upper-alpha;
+}
+
+// List with custom marker color
+.list-custom-marker li::marker {
+    color: var(--fx-primary);
+}
+
+// Description lists
 
 // Description lists
 dl {
     margin-bottom: 1rem;
 }
 
-// Description list titles
 dt {
-    font-weight: 700;
-    margin-bottom: 0.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
-// Description list data
 dd {
+    margin-left: 2rem;
     margin-bottom: 0.5rem;
-    margin-left: 0;
+}
+
+// Inline description lists
+.dl-inline {
+    display: flex;
+    flex-wrap: wrap;
+
+    dt, dd {
+        margin-right: 1rem;
+    }
+
+    dt::after {
+        content: ":";
+        margin-right: 0.5rem;
+    }
 }
 
 // Horizontal description lists

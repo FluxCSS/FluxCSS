@@ -1,3 +1,27 @@
+
+// Mixin for generating navbar color variants
+@mixin navbar-color-variant($color-name, $color) {
+    .navbar-#{$color-name} {
+        background-color: $color;
+        color: get-contrast-color($color);
+
+        .burger-icon {
+            background-color: get-contrast-color($color);
+        }
+
+        .nav-list {
+            background-color: $color;
+            color: get-contrast-color($color);
+            .nav-item {
+                &:hover {
+                    color: get-contrast-color(darken($color, 10%));
+                }
+            }
+        }
+    }
+}
+
+
 // Base styles for navbar
 .navbar {
     display: flex;
@@ -6,10 +30,10 @@
     background-color: $navbar-bg-color;
     color: $navbar-text-color;
     padding: $navbar-padding;
-    border-radius: $navbar-border-radius;
     position: relative;
     margin: 15px;
-    border-radius: 9999px;
+    border: $navbar-border;
+    border-radius: $navbar-border-radius;
 
     > .container-fixed{
         display: flex;
@@ -28,13 +52,11 @@
         list-style: none;
         margin: 0;
         padding: 0;
-
         .nav-item {
             padding: 0.5rem 1rem;
             cursor: pointer;
-
+            font-weight: 600;
             &:hover {
-                background-color: $navbar-hover-bg-color;
                 color: $navbar-hover-text-color;
             }
         }
@@ -99,11 +121,11 @@
                     display: none;
                     flex-direction: column;
                     position: absolute;
-                    top: 100%;
+                    top: calc(100% + 5px);
                     right: 0;
                     width: 100%;
                     background-color: inherit;
-                    border-radius: $navbar-border-radius;
+                    border-radius: $navbar-navlist-border-radius;
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                     z-index: 1000;
 

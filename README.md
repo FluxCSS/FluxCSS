@@ -1,6 +1,7 @@
 # FluxCSS
 
 ![CSS Brotli Size](https://img.badgesize.io/FluxCSS/FluxCSS/main/dist/css/fluxcss.min.css?compression=brotli&label=CSS%20Brotli%20size)
+![JS Brotli Size](https://img.badgesize.io/FluxCSS/FluxCSS/main/dist/js/fluxcss-bundle.min.js?compression=brotli&label=JS%20Brotli%20size)
 
 ![NPM](https://img.shields.io/npm/v/@fluxcss/fluxcss?logo=npm&logoColor=fff)
 ![NPM](https://img.shields.io/npm/dt/@fluxcss/fluxcss?logo=npm&logoColor=fff)

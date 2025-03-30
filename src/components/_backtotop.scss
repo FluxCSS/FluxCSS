@@ -1,0 +1,73 @@
+// Base back-to-top component
+.back-to-top {
+    position: fixed;
+    bottom: $back-to-top-margin;
+    right: $back-to-top-margin;
+    width: $back-to-top-size;
+    height: $back-to-top-size;
+    background-color: $back-to-top-bg-color;
+    color: $back-to-top-color;
+    border-radius: $back-to-top-border-radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: $back-to-top-transition;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+
+    // Default icon (chevron)
+    &::before {
+        content: '';
+        width: $back-to-top-size * 0.5;
+        height: $back-to-top-size * 0.5;
+        background-image: url($icon-chevron);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: invert(100%);
+    }
+
+    // Hover state
+    &:hover {
+        background-color: darken($back-to-top-bg-color, 10%);
+    }
+
+    // Active state - when the button is visible
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // Icon variants
+    &.icon-chevron::before {
+        background-image: url($icon-chevron);
+    }
+
+    &.icon-arrow::before {
+        background-image: url($icon-arrow);
+    }
+
+    &.icon-rocket::before {
+        background-image: url($icon-rocket);
+    }
+
+    &.icon-angle-double::before {
+        background-image: url($icon-angle-double);
+    }
+
+    // Color variants based on theme colors
+    @each $color, $value in $all-colors {
+        &.back-to-top-#{$color} {
+            background-color: $value;
+            color: if(lightness($value) > 50, #333, #fff);
+            &:hover {
+                background-color: darken($value, 10%);
+            }
+            &::before {
+                filter: if(lightness($value) > 50, invert(0%), invert(100%));
+            }
+        }
+    }
+}

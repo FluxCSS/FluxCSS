@@ -147,8 +147,9 @@
     margin-inline-end: auto !important;
 }
 
-// Generate width utility classes
+// Generate sizing utility classes
 @each $key, $value in $size-scale {
+    // Base classes (no breakpoint)
     .w-#{$key} {
         width: $value;
     }
@@ -158,23 +159,44 @@
     .max-w-#{$key} {
         max-width: $value;
     }
-}
-
-// Generate height utility classes
-@each $key, $value in $size-scale {
     .h-#{$key} {
         height: $value;
     }
     .min-h-#{$key} {
-        min-width: $value;
+        min-height: $value;
     }
     .max-h-#{$key} {
-        max-width: $value;
+        max-height: $value;
     }
 }
 
-// Utility classes for viewport width and height
-// Generate width utility classes
+// Generate responsive sizing classes separately
+@each $breakpoint, $width in $breakpoints {
+    @media (min-width: $width) {
+        @each $key, $value in $size-scale {
+            .w-#{$breakpoint}-#{$key} {
+                width: $value;
+            }
+            .min-w-#{$breakpoint}-#{$key} {
+                min-width: $value;
+            }
+            .max-w-#{$breakpoint}-#{$key} {
+                max-width: $value;
+            }
+            .h-#{$breakpoint}-#{$key} {
+                height: $value;
+            }
+            .min-h-#{$breakpoint}-#{$key} {
+                min-height: $value;
+            }
+            .max-h-#{$breakpoint}-#{$key} {
+                max-height: $value;
+            }
+        }
+    }
+}
+
+// Generate sizing utility classes
 @each $key, $value in $viewport-size-scale {
     .vw-#{$key} {
         width: #{$value}vw;
@@ -185,10 +207,6 @@
     .max-vw-#{$key} {
         max-width: #{$value}vw;
     }
-}
-
-// Generate height utility classes
-@each $key, $value in $viewport-size-scale {
     .vh-#{$key} {
         height: #{$value}vh;
     }
@@ -199,7 +217,31 @@
         max-height: #{$value}vh;
     }
 }
-
+// Generate responsive sizing classes separately
+@each $breakpoint, $width in $breakpoints {
+    @media (min-width: $width) {
+        @each $key, $value in $viewport-size-scale {
+            .vw-#{$breakpoint}-#{$key} {
+                width: #{$value}vw !important;
+            }
+            .min-vw-#{$breakpoint}-#{$key} {
+                min-width: #{$value}vw !important;
+            }
+            .max-vw-#{$breakpoint}-#{$key} {
+                max-width: #{$value}vw !important;
+            }
+            .vh-#{$breakpoint}-#{$key} {
+                height: #{$value}vh !important;
+            }
+            .min-vh-#{$breakpoint}-#{$key} {
+                min-height: #{$value}vh !important;
+            }
+            .max-vh-#{$breakpoint}-#{$key} {
+                max-height: #{$value}vh !important;
+            }
+        }
+    }
+}
 
 // Text alignment helpers
 .text-start {

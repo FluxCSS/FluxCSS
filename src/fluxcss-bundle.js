@@ -1,5 +1,5 @@
 /**
- * FluxCSS Components - v0.0.4
+ * FluxCSS Components - v0.0.6
  * Carousel, Navbar and Sidenav components that work with the FluxCSS framework
  * Copyright 2025 Nouvelle-Techno.fr
  */
@@ -14,6 +14,12 @@
 
     // Initialize Sidenavs
     initSidenavs();
+
+    // Initialize Back to Top buttons
+    initBackToTop();
+
+    // Initialize Dropdowns
+    initDropdowns();
   });
 
   /**
@@ -377,5 +383,167 @@
         }
       });
     });
+  }
+  /**
+   * Initialize all back-to-top buttons on the page
+   */
+  function initBackToTop() {
+    // Select all back-to-top buttons on the page
+    const backToTopButtons = document.querySelectorAll('.back-to-top');
+
+    // If no back-to-top buttons found, exit early
+    if (backToTopButtons.length === 0) return;
+
+    // Show button when page is scrolled down
+    const scrollThreshold = 300; // Show button after scrolling down 300px
+
+    // Function to check scroll position and toggle button visibility
+    function toggleBackToTopVisibility() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      backToTopButtons.forEach(function (button) {
+        if (scrollTop > scrollThreshold) {
+          button.classList.add('show');
+        } else {
+          button.classList.remove('show');
+        }
+      });
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', toggleBackToTopVisibility);
+
+    // Add click event listener to each back-to-top button
+    backToTopButtons.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Smooth scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Add keyboard accessibility
+      button.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Initial check for button visibility (in case page is already scrolled)
+    toggleBackToTopVisibility();
+  }
+  /**
+   * Initialize all dropdowns on the page
+   */
+  function initDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown, .dropup, .dropright, .dropleft');
+
+    dropdowns.forEach(function(dropdown) {
+      const toggle = dropdown.querySelector('.dropdown-toggle');
+      const menu = dropdown.querySelector('.dropdown-menu');
+
+      if (!toggle || !menu) return;
+
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleDropdown(dropdown);
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+          closeDropdown(dropdown);
+        }
+      });
+
+      // Handle keyboard navigation
+      menu.addEventListener('keydown', function(e) {
+        handleKeyboardNavigation(e, dropdown);
+      });
+    });
+  }
+
+  /**
+   * Toggle dropdown visibility
+   */
+  function toggleDropdown(dropdown) {
+    const menu = dropdown.querySelector('.dropdown-menu');
+    const isOpen = menu.classList.contains('show');
+
+    // Close all other dropdowns first
+    document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
+      if (openMenu !== menu) {
+        openMenu.classList.remove('show');
+        openMenu.parentNode.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (isOpen) {
+      closeDropdown(dropdown);
+    } else {
+      openDropdown(dropdown);
+    }
+  }
+
+  /**
+   * Open dropdown
+   */
+  function openDropdown(dropdown) {
+    const menu = dropdown.querySelector('.dropdown-menu');
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+
+    menu.classList.add('show');
+    dropdown.setAttribute('aria-expanded', 'true');
+
+    // Focus first menu item
+    const firstItem = menu.querySelector('.dropdown-item:not(.disabled)');
+    if (firstItem) firstItem.focus();
+  }
+
+  /**
+   * Close dropdown
+   */
+  function closeDropdown(dropdown) {
+    const menu = dropdown.querySelector('.dropdown-menu');
+    menu.classList.remove('show');
+    dropdown.setAttribute('aria-expanded', 'false');
+  }
+
+  /**
+   * Handle keyboard navigation within dropdown
+   */
+  function handleKeyboardNavigation(e, dropdown) {
+    const menu = dropdown.querySelector('.dropdown-menu');
+    const items = menu.querySelectorAll('.dropdown-item:not(.disabled)');
+    const currentIndex = Array.from(items).indexOf(document.activeElement);
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        if (currentIndex < items.length - 1) {
+          items[currentIndex + 1].focus();
+        }
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        if (currentIndex > 0) {
+          items[currentIndex - 1].focus();
+        }
+        break;
+      case 'Escape':
+        e.preventDefault();
+        closeDropdown(dropdown);
+        dropdown.querySelector('.dropdown-toggle').focus();
+        break;
+    }
   }
 })();

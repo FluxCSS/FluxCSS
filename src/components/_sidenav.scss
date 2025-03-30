@@ -34,6 +34,10 @@
         margin: 0;
 
         .sidenav-item {
+            h2, h3, h4, h5, h6{
+                padding: 0.75rem 1rem;
+                margin: 0;
+            }
             .sidenav-link {
                 display: flex;
                 align-items: center;

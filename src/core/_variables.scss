@@ -1,41 +1,50 @@
-// Global variables for the framework
+// ======================================
+// FRAMEWORK CONFIGURATION
+// ======================================
 $prefix: 'fx';
+
+// ======================================
+// TYPOGRAPHY
+// ======================================
 
 // Base font settings
 $base-font-size: 16px;
+$font-size-base: $base-font-size; // Suppression de la duplication
 $base-line-height: 1.5;
+$line-height-base: $base-line-height; // Suppression de la duplication
 $base-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$font-family-base: $base-font-family; // Remplacement de la valeur dupliquée
 
 // Font weight scale
 $font-weights: (
-    1: 100,
-    2: 200,
-    3: 300,
-    4: 400,
-    5: 500,
-    6: 600,
-    7: 700,
-    8: 800,
-    9: 900
+        1: 100,
+        2: 200,
+        3: 300,
+        4: 400,
+        5: 500,
+        6: 600,
+        7: 700,
+        8: 800,
+        9: 900
 );
 
-// Font size scale (fs-1 to fs-8)
+// Font size scale
 $font-sizes: (
-    1: 0.75rem, // 12px
-    2: 0.875rem, // 14px
-    3: 1rem,     // 16px (standard size)
-    4: 1.125rem, // 18px
-    5: 1.25rem,  // 20px
-    6: 1.5rem,   // 24px
-    7: 2rem,     // 32px
-    8: 2.5rem    // 40px
+        1: 0.75rem,  // 12px
+        2: 0.875rem, // 14px
+        3: 1rem,     // 16px (standard size)
+        4: 1.125rem, // 18px
+        5: 1.25rem,  // 20px
+        6: 1.5rem,   // 24px
+        7: 2rem,     // 32px
+        8: 2.5rem    // 40px
 );
 
-// Line height scale
-$line-height-base: 1.5;
+// ======================================
+// COLORS
+// ======================================
 
-// Primary and secondary colors
-// Color palette variables
+// Base colors
 $primary: #1E3A8A;
 $secondary: #A9A9A9;
 $tertiary: #98FB98;
@@ -48,167 +57,138 @@ $dark: #333333;
 $white: #ffffff;
 $black: #000000;
 
-
-// Theme colors
+// Theme colors map
 $theme-colors: (
-    "primary":      $primary,
-    "secondary":    $secondary,
-    "tertiary":     $tertiary,
-    "success":      $success,
-    "warning":      $warning,
-    "danger":       $danger,
-    "info":         $info,
-    "light":        $light,
-    "dark":         $dark,
-    "white":        $white,
-    "black":        $black
+        "primary":    $primary,
+        "secondary":  $secondary,
+        "tertiary":   $tertiary,
+        "success":    $success,
+        "warning":    $warning,
+        "danger":     $danger,
+        "info":       $info,
+        "light":      $light,
+        "dark":       $dark,
+        "white":      $white,
+        "black":      $black
 );
 
-// Basic palette colors
+// Extended palette colors
 $palette-colors: (
-    "silver": #C0C0C0,
-    "gray": #808080,
-    "red": #FF0000,
-    "maroon": #800000,
-    "yellow": #FFFF00,
-    "olive": #808000,
-    "lime": #00FF00,
-    "green": #008000,
-    "aqua": #00FFFF,
-    "teal": #008080,
-    "blue": #0000FF,
-    "navy": #000080,
-    "fuchsia": #FF00FF,
-    "purple": #800080
+        "silver":  #C0C0C0,
+        "gray":    #808080,
+        "red":     #FF0000,
+        "maroon":  #800000,
+        "yellow":  #FFFF00,
+        "olive":   #808000,
+        "lime":    #00FF00,
+        "green":   #008000,
+        "aqua":    #00FFFF,
+        "teal":    #008080,
+        "blue":    #0000FF,
+        "navy":    #000080,
+        "fuchsia": #FF00FF,
+        "purple":  #800080
 );
 
-// Activate all colors palette
+// Color configuration
 $use-all-colors: false !default;
+$color-variants: (10, 20, 30, 40, 50, 60, 70, 80, 90);
 
-// Color variations (min 10 max 100)
-$color-variants: (
-    10,
-    20,
-    30,
-    40,
-    50,
-    60,
-    70,
-    80,
-    90,
-);
+// ======================================
+// LAYOUT & SPACING
+// ======================================
 
-// Base font settings
-$font-size-base: 16px;
-$font-family-base: Arial, sans-serif;
-
-// Breakpoints for responsive design
+// Breakpoints
 $breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1500px,
-    3xl: 1800px,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1500px,
+        3xl: 1800px
 ) !default;
 
-// Breakpoints for responsive design
+// Container widths
 $containers-width: (
-    sm: 540px,
-    md: 720px,
-    lg: 930px,
-    xl: 1140px,
-    xxl: 1420px,
-    3xl: 1720px
+        sm: 540px,
+        md: 720px,
+        lg: 930px,
+        xl: 1140px,
+        xxl: 1420px,
+        3xl: 1720px
 ) !default;
 
-// Base spacing
+// Spacing
 $spacer: 16px;
-
-// Spacing scale for consistent margin and padding sizes
 $spacing: (
-    0: 0,
-    1: $spacer * 0.25, // 4px
-    2: $spacer * 0.5,  // 8px
-    3: $spacer,        // 16px
-    4: $spacer * 1.5,  // 24px
-    5: $spacer * 2,    // 32px
-    6: $spacer * 3,    // 48px
-    7: $spacer * 4,    // 64px
-    8: $spacer * 5     // 80px
+        0: 0,
+        1: $spacer * 0.25, // 4px
+        2: $spacer * 0.5,  // 8px
+        3: $spacer,        // 16px
+        4: $spacer * 1.5,  // 24px
+        5: $spacer * 2,    // 32px
+        6: $spacer * 3,    // 48px
+        7: $spacer * 4,    // 64px
+        8: $spacer * 5     // 80px
 ) !default;
 
-// Borders
-// Border widths variable
-$border-widths: (
-    1: 1px,
-    2: 2px,
-    3: 3px,
-    4: 4px,
-    5: 5px,
-    6: 6px,
-    7: 7px,
-    8: 8px
-);
-// Generate border classes for each side
-$border-sides: (
-    all: '', // For border (all sides)
-    t: 'top',
-    b: 'bottom',
-    s: 'start',
-    e: 'end'
-);
-// Default border color
-$border-color: #999999;
-
-// Variable for the default border width
-$border-width: 1px;
-
-
-// Shadows
-// Variables for box shadow sizes
-$shadow-sizes: (
-    sm: 1px 1px 2px,
-    md: 4px 4px 8px,
-    lg: 8px 8px 16px,
-    xl: 12px 12px 24px
-);
-// Default shadow color
-$default-shadow-color: rgba(0, 0, 0, 0.4);
-
-// Default shadow size
-$default-shadow-size: 1px 1px 2px;
-// Opacity levels
-$opacities: (
-    1: 0.1,
-    2: 0.2,
-    3: 0.3,
-    4: 0.4,
-    5: 0.5,
-    6: 0.6,
-    7: 0.7,
-    8: 0.8,
-    9: 0.9
-);
-
-// Define a scale for width and height
+// Size scales
 $size-scale: (
-    0: 0,
-    25: 25%,
-    50: 50%,
-    75: 75%,
-    100: 100%,
+        0: 0,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%
 );
 
 $viewport-size-scale: (
-    0: 0,
-    25: 25,
-    50: 50,
-    75: 75,
-    100: 100,
+        0: 0,
+        25: 25,
+        50: 50,
+        75: 75,
+        100: 100
 );
 
-// Define a scale for border radius using numerical values
+// Display utilities
+$displays: (
+        none: none,
+        inline: inline,
+        inline-block: inline-block,
+        block: block,
+        flex: flex,
+        inline-flex: inline-flex,
+        grid: grid,
+        inline-grid: inline-grid
+);
+
+// ======================================
+// BORDERS & DECORATIONS
+// ======================================
+
+// Border configuration
+$border-width: 1px;
+$border-color: #999999;
+$border-widths: (
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px,
+        5: 5px,
+        6: 6px,
+        7: 7px,
+        8: 8px
+);
+
+$border-sides: (
+        all: '',    // For border (all sides)
+        t: 'top',
+        b: 'bottom',
+        s: 'start',
+        e: 'end'
+);
+
+// Border radius
+$base-border-radius: 6px;
 $border-radius-scale: (
         0: 0,
         2: 2px,
@@ -223,29 +203,51 @@ $border-radius-scale: (
         9999: 9999px // effectively a circle for large values
 );
 
-$base-border-radius: 6px;
+// Shadows
+$default-shadow-color: rgba(0, 0, 0, 0.4);
+$default-shadow-size: 1px 1px 2px;
+$shadow-sizes: (
+        sm: 1px 1px 2px,
+        md: 4px 4px 8px,
+        lg: 8px 8px 16px,
+        xl: 12px 12px 24px
+);
 
+// Opacity
+$opacities: (
+        1: 0.1,
+        2: 0.2,
+        3: 0.3,
+        4: 0.4,
+        5: 0.5,
+        6: 0.6,
+        7: 0.7,
+        8: 0.8,
+        9: 0.9
+);
+
+// ======================================
+// COMPONENT VARIABLES
+// ======================================
 
 // Tables
 $table-width: 100%;
 $cell-padding: 12px;
-$border-color: #ddd;
+$compact-padding: 8px;
 $header-bg-color: #f4f4f4;
 $stripe-color: #f9f9f9;
 $hover-color: #f1f1f1;
-$compact-padding: 8px;
 
-
-// Variables for figure and caption
+// Figure and caption
 $caption-padding: 10px;
 $caption-bg-color: rgba(0, 0, 0, 0.5);
 $caption-text-color: #fff;
 
-// Variables for breadcrumb
+// Breadcrumb
 $breadcrumb-separator-color: #6c757d;
 $breadcrumb-separator-margin: 0.5rem;
 
-// Variables for accordion
+// Accordion
 $accordion-border-color: #ddd;
 $accordion-header-bg-color: #f8f9fa;
 $accordion-header-color: #343a40;
@@ -254,37 +256,45 @@ $accordion-body-color: #212529;
 $accordion-summary-padding: 1rem;
 $accordion-body-padding: 1rem;
 
-// Variables for card styles
+// Cards
 $card-border-color: #ddd;
 $card-border-radius: 0.25rem;
 $card-padding: 1rem;
 $card-bg-color: #fff;
 $card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+// Forms
+$input-padding-y: 0.5rem;
+$input-padding-x: 0.75rem;
+$input-border-width: 1px;
+$input-border-radius: $base-border-radius;
+$input-border-color: #ced4da;
+$input-bg: $white;
+$input-color: $dark;
+$input-placeholder-color: rgba($dark, 0.5);
+$input-focus-border-color: lighten($primary, 25%);
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+$input-disabled-bg: #e9ecef;
 
-// Display utilities map
-$displays: (
-    none: none,
-    inline: inline,
-    inline-block: inline-block,
-    block: block,
-    flex: flex,
-    inline-flex: inline-flex,
-    grid: grid,
-    inline-grid: inline-grid,
-);
+$form-group-margin-bottom: 1rem;
+$form-text-margin-top: 0.25rem;
+$form-text-color: rgba($dark, 0.7);
 
+$form-check-input-gutter: 1.25rem;
+$form-check-margin-bottom: 0.5rem;
+$form-check-input-margin-y: 0.25rem;
+$form-check-input-margin-x: 0.25rem;
 
-// Default navbar styles
-$navbar-bg-color: darken($light, 10%);
+// Navbar
+$navbar-bg-color: $light;
 $navbar-text-color: $dark;
-$navbar-hover-bg-color: darken($navbar-bg-color, 10%);
-$navbar-hover-text-color: lighten($navbar-text-color, 10%);
+$navbar-hover-text-color: $primary;
 $navbar-padding: 1rem;
-$navbar-border-radius: 0.25rem;
+$navbar-border-radius: 9999px;
+$navbar-navlist-border-radius: 0.25rem;
+$navbar-border: 1px solid darken($light, 10%);
 
-
-// Variables for carousel styles
+// Carousel
 $carousel-bg-color: #f1f1f1;
 $carousel-text-color: #333;
 $carousel-padding: 1rem;
@@ -293,3 +303,47 @@ $carousel-transition: opacity 0.5s ease-in-out;
 $indicator-color: #ccc;
 $indicator-active-color: #333;
 $indicator-size: 0.75rem;
+
+// Back to top
+$back-to-top-size: 40px;
+$back-to-top-margin: 20px;
+$back-to-top-bg-color: #333;
+$back-to-top-color: #fff;
+$back-to-top-border-radius: 50%;
+$back-to-top-transition: all 0.3s ease;
+
+// Dropdowns
+$dropdown-min-width: 10rem;
+$dropdown-padding-y: 0.5rem;
+$dropdown-padding-x: 0;
+$dropdown-spacing: 0.125rem;
+$dropdown-font-size: $font-size-base;
+$dropdown-color: $dark;
+$dropdown-bg: $white;
+$dropdown-border-color: rgba($black, 0.15);
+$dropdown-border-radius: $base-border-radius;
+$dropdown-border-width: $border-width;
+$dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
+$dropdown-divider-bg: $dropdown-border-color;
+$dropdown-divider-margin-y: 0.5rem;
+
+$dropdown-link-color: $dark;
+$dropdown-link-hover-color: darken($dark, 10%);
+$dropdown-link-hover-bg: $light;
+$dropdown-link-active-color: $white;
+$dropdown-link-active-bg: $primary;
+$dropdown-link-disabled-color: rgba($dark, 0.5);
+
+$dropdown-item-padding-y: 0.25rem;
+$dropdown-item-padding-x: 1rem;
+$dropdown-header-color: rgba($dark, 0.7);
+$dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
+// ======================================
+// ICONS
+// ======================================
+
+// SVG icons encoded in base64
+$icon-chevron: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0yNDAuOTcxIDEzMC41MjRsMTk0LjM0MyAxOTQuMzQzYzkuMzczIDkuMzczIDkuMzczIDI0LjU2OSAwIDMzLjk0MWwtMjIuNjY3IDIyLjY2N2MtOS4zNTcgOS4zNTctMjQuNTIyIDkuMzc1LTMzLjkwMS4wNEwyMjQgMjI3LjQ5NSA2OS4yNTUgMzgxLjUxNmMtOS4zNzkgOS4zMzUtMjQuNTQ0IDkuMzE3LTMzLjkwMS0uMDRsLTIyLjY2Ny0yMi42NjdjLTkuMzczLTkuMzczLTkuMzczLTI0LjU2OSAwLTMzLjk0MUwyMDcuMDMgMTMwLjUyNWM5LjM3Mi05LjM3MyAyNC41NjgtOS4zNzMgMzMuOTQxLS4wMDF6Ii8+PC9zdmc+';
+$icon-arrow: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0zNC45IDI4OS41bC0yMi4yLTIyLjJjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45TDIwNyAzOWM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGwxOTQuMyAxOTQuM2M5LjQgOS40IDkuNCAyNC42IDAgMzMuOUw0MTMgMjg5LjRjLTkuNSA5LjUtMjUgOS4zLTM0LjMtLjRMMjY0IDE2OC42VjQ1NmMwIDEzLjMtMTAuNyAyNC0yNCAyNGgtMzJjLTEzLjMgMC0yNC0xMC43LTI0LTI0VjE2OC42TDY5LjIgMjg5LjFjLTkuMyA5LjgtMjQuOCAxMC0zNC4zLjR6Ii8+PC9zdmc+';
+$icon-rocket: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik01MDUuMSAxOS4xQzUwMy44IDEzIDQ5OSA4LjIgNDkyLjkgNi45IDQ2MC43IDAgNDM1LjUgMCA0MTAuNCAwIDMwNy4yIDAgMjQ1LjMgNTUuMiAxOTkuMSAxMjhIOTQuOWMtMTguMiAwLTM0LjggMTAuMy00Mi45IDI2LjVMMi42IDI1My4zYy04IDE2IDMuNiAzNC43IDIxLjUgMzQuN2g5NS4xYy01LjkgMTIuOC0xMS45IDI1LjUtMTggMzcuNy0zLjEgNi4yLTEuOSAxMy42IDMgMTguNWw2My42IDYzLjZjNC45IDQuOSAxMi4zIDYuMSAxOC41IDMgMTIuMi02LjEgMjQuOS0xMiAzNy43LTE3LjlWNDg4YzAgMTcuOCAxOC44IDI5LjQgMzQuNyAyMS41bDk4LjctNDkuNGMxNi4zLTguMSAyNi41LTI0LjggMjYuNS00Mi45VjMxMi44YzcyLjYtNDYuMyAxMjgtMTA4LjQgMTI4LTIxMS4xLjEtMjUuMi4xLTUwLjQtNi44LTgyLjZ6TTQwMCAxNjBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4czIxLjUtNDggNDgtNDggNDggMjEuNSA0OCA0OC0yMS41IDQ4LTQ4IDQ4eiIvPjwvc3ZnPg==';
+$icon-angle-double: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xNzcgMjU1LjdsMTM2IDEzNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMjIuNiAyMi42Yy05LjQgOS40LTI0LjYgOS40LTMzLjkgMEwxNjAgMzUxLjlsLTk2LjQgOTYuNGMtOS40IDkuNC0yNC42IDkuNC0zMy45IDBMNyA0MjUuN2MtOS40LTkuNC05LjQtMjQuNiAwLTMzLjlsMTM2LTEzNmM5LjQtOS41IDI0LjYtOS41IDM0LS4xem0tMzQtMTkyTDcgMTk5LjdjLTkuNCA5LjQtOS40IDI0LjYgMCAzMy45bDIyLjYgMjIuNmM5LjQgOS40IDI0LjYgOS40IDMzLjkgMGw5Ni40LTk2LjQgOTYuNCA5Ni40YzkuNCA5LjQgMjQuNiA5LjQgMzMuOSAwbDIyLjYtMjIuNmM5LjQtOS40IDkuNC0yNC42IDAtMzMuOWwtMTM2LTEzNmMtOS4yLTkuNC0yNC40LTkuNC0zMy44IDB6Ii8+PC9zdmc+';
