@@ -230,23 +230,6 @@ $opacities: (
 // COMPONENT VARIABLES
 // ======================================
 
-// Tables
-$table-width: 100%;
-$cell-padding: 12px;
-$compact-padding: 8px;
-$header-bg-color: #f4f4f4;
-$stripe-color: #f9f9f9;
-$hover-color: #f1f1f1;
-
-// Figure and caption
-$caption-padding: 10px;
-$caption-bg-color: rgba(0, 0, 0, 0.5);
-$caption-text-color: #fff;
-
-// Breadcrumb
-$breadcrumb-separator-color: #6c757d;
-$breadcrumb-separator-margin: 0.5rem;
-
 // Accordion
 $accordion-border-color: #ddd;
 $accordion-header-bg-color: #f8f9fa;
@@ -256,12 +239,64 @@ $accordion-body-color: #212529;
 $accordion-summary-padding: 1rem;
 $accordion-body-padding: 1rem;
 
+// Back to top
+$back-to-top-size: 40px;
+$back-to-top-margin: 20px;
+$back-to-top-bg-color: #333;
+$back-to-top-color: #fff;
+$back-to-top-border-radius: 50%;
+$back-to-top-transition: all 0.3s ease;
+
+// Breadcrumb
+$breadcrumb-separator-color: #6c757d;
+$breadcrumb-separator-margin: 0.5rem;
+
 // Cards
 $card-border-color: #ddd;
 $card-border-radius: 0.25rem;
 $card-padding: 1rem;
 $card-bg-color: #fff;
 $card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// Carousel
+$carousel-bg-color: #f1f1f1;
+$carousel-text-color: #333;
+$carousel-padding: 1rem;
+$carousel-border-radius: 0.5rem;
+$carousel-transition: opacity 0.5s ease-in-out;
+$indicator-color: #ccc;
+$indicator-active-color: #333;
+$indicator-size: 0.75rem;
+
+// Dropdowns
+$dropdown-min-width: 10rem;
+$dropdown-padding-y: 0.5rem;
+$dropdown-padding-x: 0;
+$dropdown-spacing: 0.125rem;
+$dropdown-font-size: $font-size-base;
+$dropdown-color: $dark;
+$dropdown-bg: $white;
+$dropdown-border-color: rgba($black, 0.15);
+$dropdown-border-radius: $base-border-radius;
+$dropdown-border-width: $border-width;
+$dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
+$dropdown-divider-bg: $dropdown-border-color;
+$dropdown-divider-margin-y: 0.5rem;
+$dropdown-link-color: $dark;
+$dropdown-link-hover-color: darken($dark, 10%);
+$dropdown-link-hover-bg: $light;
+$dropdown-link-active-color: $white;
+$dropdown-link-active-bg: $primary;
+$dropdown-link-disabled-color: rgba($dark, 0.5);
+$dropdown-item-padding-y: 0.25rem;
+$dropdown-item-padding-x: 1rem;
+$dropdown-header-color: rgba($dark, 0.7);
+$dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
+
+// Figure and caption
+$caption-padding: 10px;
+$caption-bg-color: rgba(0, 0, 0, 0.5);
+$caption-text-color: #fff;
 
 // Forms
 $input-padding-y: 0.5rem;
@@ -336,48 +371,14 @@ $form-switch-bg-color: #ccc !default;
 $form-switch-active-bg-color: $primary !default;
 $form-switch-handle-color: #fff !default;
 
-// Carousel
-$carousel-bg-color: #f1f1f1;
-$carousel-text-color: #333;
-$carousel-padding: 1rem;
-$carousel-border-radius: 0.5rem;
-$carousel-transition: opacity 0.5s ease-in-out;
-$indicator-color: #ccc;
-$indicator-active-color: #333;
-$indicator-size: 0.75rem;
+// Tables
+$table-width: 100%;
+$cell-padding: 12px;
+$compact-padding: 8px;
+$header-bg-color: #f4f4f4;
+$stripe-color: #f9f9f9;
+$hover-color: #f1f1f1;
 
-// Back to top
-$back-to-top-size: 40px;
-$back-to-top-margin: 20px;
-$back-to-top-bg-color: #333;
-$back-to-top-color: #fff;
-$back-to-top-border-radius: 50%;
-$back-to-top-transition: all 0.3s ease;
-
-// Dropdowns
-$dropdown-min-width: 10rem;
-$dropdown-padding-y: 0.5rem;
-$dropdown-padding-x: 0;
-$dropdown-spacing: 0.125rem;
-$dropdown-font-size: $font-size-base;
-$dropdown-color: $dark;
-$dropdown-bg: $white;
-$dropdown-border-color: rgba($black, 0.15);
-$dropdown-border-radius: $base-border-radius;
-$dropdown-border-width: $border-width;
-$dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
-$dropdown-divider-bg: $dropdown-border-color;
-$dropdown-divider-margin-y: 0.5rem;
-$dropdown-link-color: $dark;
-$dropdown-link-hover-color: darken($dark, 10%);
-$dropdown-link-hover-bg: $light;
-$dropdown-link-active-color: $white;
-$dropdown-link-active-bg: $primary;
-$dropdown-link-disabled-color: rgba($dark, 0.5);
-$dropdown-item-padding-y: 0.25rem;
-$dropdown-item-padding-x: 1rem;
-$dropdown-header-color: rgba($dark, 0.7);
-$dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
 
 // ======================================
 // ICONS
