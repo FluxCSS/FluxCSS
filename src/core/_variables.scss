@@ -305,6 +305,24 @@ $navbar-border-radius: 9999px;
 $navbar-navlist-border-radius: 0.25rem;
 $navbar-border: 1px solid darken($light, 10%);
 
+// Pagination
+$pagination-padding-y: 0.5rem !default;
+$pagination-padding-x: 0.75rem !default;
+$pagination-color: $primary !default;
+$pagination-bg: #fff !default;
+$pagination-border-width: 1px !default;
+$pagination-border-color: #dee2e6 !default;
+$pagination-border-radius: 0.25rem !default;
+$pagination-hover-color: darken($primary, 15%) !default;
+$pagination-hover-bg: #e9ecef !default;
+$pagination-active-color: #fff !default;
+$pagination-active-bg: $primary !default;
+$pagination-active-border-color: $primary !default;
+$pagination-disabled-color: #6c757d !default;
+$pagination-disabled-bg: #fff !default;
+$pagination-disabled-border-color: #dee2e6 !default;
+$pagination-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
 // Switches
 $form-switch-width: 2.625rem !default;
 $form-switch-height: 1.3125rem !default;

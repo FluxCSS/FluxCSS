@@ -1,0 +1,102 @@
+// Pagination container
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: 1rem 0;
+    border-radius: $pagination-border-radius;
+}
+
+// Pagination items
+.page-item {
+    position: relative;
+
+    &:first-child .page-link {
+        margin-left: 0;
+        border-top-left-radius: $pagination-border-radius;
+        border-bottom-left-radius: $pagination-border-radius;
+    }
+
+    &:last-child .page-link {
+        border-top-right-radius: $pagination-border-radius;
+        border-bottom-right-radius: $pagination-border-radius;
+    }
+
+    &.active .page-link {
+        z-index: 3;
+        color: $pagination-active-color;
+        background-color: $pagination-active-bg;
+        border-color: $pagination-active-border-color;
+        cursor: default;
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+        }
+    }
+
+    &.disabled .page-link {
+        color: $pagination-disabled-color;
+        pointer-events: none;
+        background-color: $pagination-disabled-bg;
+        border-color: $pagination-disabled-border-color;
+    }
+}
+
+// Pagination links
+.page-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $pagination-padding-y $pagination-padding-x;
+    margin-left: -$pagination-border-width;
+    line-height: 1.25;
+    color: $pagination-color;
+    text-decoration: none;
+    background-color: $pagination-bg;
+    border: $pagination-border-width solid $pagination-border-color;
+    transition: $pagination-transition;
+    min-width: 2.5rem;
+
+    &:hover {
+        z-index: 2;
+        color: $pagination-hover-color;
+        background-color: $pagination-hover-bg;
+        border-color: $pagination-border-color;
+        text-decoration: none;
+    }
+
+    &:focus {
+        z-index: 3;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
+}
+
+// Pagination sizes
+.pagination-sm {
+    .page-link {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        min-width: 2rem;
+    }
+}
+
+.pagination-lg {
+    .page-link {
+        padding: 0.75rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        min-width: 3rem;
+    }
+}
+
+// Pagination alignment
+.justify-content-center .pagination {
+    justify-content: center;
+}
+
+.justify-content-end .pagination {
+    justify-content: flex-end;
+}
