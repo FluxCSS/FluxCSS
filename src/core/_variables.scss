@@ -275,15 +275,26 @@ $input-placeholder-color: rgba($dark, 0.5);
 $input-focus-border-color: lighten($primary, 25%);
 $input-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
 $input-disabled-bg: #e9ecef;
-
 $form-group-margin-bottom: 1rem;
 $form-text-margin-top: 0.25rem;
 $form-text-color: rgba($dark, 0.7);
-
 $form-check-input-gutter: 1.25rem;
 $form-check-margin-bottom: 0.5rem;
 $form-check-input-margin-y: 0.25rem;
 $form-check-input-margin-x: 0.25rem;
+
+// Modals
+$modal-bg: #fff !default;
+$modal-border-color: rgba(0, 0, 0, 0.2) !default;
+$modal-border-radius: 0.3rem !default;
+$modal-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !default;
+$modal-header-border-color: #dee2e6 !default;
+$modal-footer-border-color: #dee2e6 !default;
+$modal-header-padding: 1rem !default;
+$modal-inner-padding: 1rem !default;
+$modal-backdrop-bg: #000 !default;
+$modal-backdrop-opacity: 0.5 !default;
+$modal-transition: transform 0.3s ease-out !default;
 
 // Navbar
 $navbar-bg-color: $light;
@@ -293,6 +304,19 @@ $navbar-padding: 1rem;
 $navbar-border-radius: 9999px;
 $navbar-navlist-border-radius: 0.25rem;
 $navbar-border: 1px solid darken($light, 10%);
+
+// Switches
+$form-switch-width: 2.625rem !default;
+$form-switch-height: 1.3125rem !default;
+$form-switch-padding-left: $form-switch-width + 0.5rem !default;
+$form-switch-border-radius: $form-switch-height !default;
+$form-switch-handle-size: $form-switch-height - 0.375rem !default;
+$form-switch-handle-margin: 0.1875rem !default;
+$form-switch-transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95) !default;
+$form-switch-focus-color: rgba($primary, 0.25) !default;
+$form-switch-bg-color: #ccc !default;
+$form-switch-active-bg-color: $primary !default;
+$form-switch-handle-color: #fff !default;
 
 // Carousel
 $carousel-bg-color: #f1f1f1;
@@ -326,18 +350,17 @@ $dropdown-border-width: $border-width;
 $dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
 $dropdown-divider-bg: $dropdown-border-color;
 $dropdown-divider-margin-y: 0.5rem;
-
 $dropdown-link-color: $dark;
 $dropdown-link-hover-color: darken($dark, 10%);
 $dropdown-link-hover-bg: $light;
 $dropdown-link-active-color: $white;
 $dropdown-link-active-bg: $primary;
 $dropdown-link-disabled-color: rgba($dark, 0.5);
-
 $dropdown-item-padding-y: 0.25rem;
 $dropdown-item-padding-x: 1rem;
 $dropdown-header-color: rgba($dark, 0.7);
 $dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
+
 // ======================================
 // ICONS
 // ======================================

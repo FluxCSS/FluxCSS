@@ -20,6 +20,9 @@
 
     // Initialize Dropdowns
     initDropdowns();
+
+    // Initialize Modals
+    initModals();
   });
 
   /**
@@ -544,6 +547,89 @@
         closeDropdown(dropdown);
         dropdown.querySelector('.dropdown-toggle').focus();
         break;
+    }
+  }
+
+  /**
+   * Initialize all modals on the page
+   */
+  function initModals() {
+    // Select all modal triggers
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+
+    // If no modal triggers found, exit early
+    if (modalTriggers.length === 0) return;
+
+    // Add click event listener to each modal trigger
+    modalTriggers.forEach(function(trigger) {
+      const modalId = trigger.getAttribute('data-modal-target');
+      const modal = document.querySelector(modalId);
+
+      if (!modal) return;
+
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal(modal);
+      });
+    });
+
+    // Add click event listener to each close button
+    modalCloseButtons.forEach(function(button) {
+      const modal = button.closest('.modal');
+
+      if (!modal) return;
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeModal(modal);
+      });
+    });
+
+    // Close modal when clicking on backdrop
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+        closeModal(e.target);
+      }
+    });
+
+    // Close modal when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const openModal = document.querySelector('.modal.show');
+        if (openModal) {
+          closeModal(openModal);
+        }
+      }
+    });
+
+    // Function to open modal
+    function openModal(modal) {
+      const backdrop = document.createElement('div');
+      backdrop.classList.add('modal-backdrop');
+      document.body.appendChild(backdrop);
+
+      // Prevent body scrolling
+      document.body.style.overflow = 'hidden';
+
+      // Add show class with slight delay for animation
+      setTimeout(function() {
+        modal.classList.add('show');
+      }, 10);
+    }
+
+    // Function to close modal
+    function closeModal(modal) {
+      modal.classList.remove('show');
+
+      // Remove backdrop and restore body scrolling after animation completes
+      setTimeout(function() {
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+          backdrop.remove();
+        }
+        document.body.style.overflow = '';
+      }, 300); // Match the CSS transition duration
     }
   }
 })();
