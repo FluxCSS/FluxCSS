@@ -1,7 +1,7 @@
 /**
- * FluxCSS Components - v0.0.6
- * Carousel, Navbar and Sidenav components that work with the FluxCSS framework
- * Copyright 2025 Nouvelle-Techno.fr
+ * FluxCSS Components - v0.0.7
+ * Interactive components that work with the FluxCSS framework
+ * Copyright 2025 FluxCSS.org
  */
 (function() {
   // Wait for DOM to be fully loaded
