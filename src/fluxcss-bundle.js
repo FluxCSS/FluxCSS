@@ -1,5 +1,5 @@
 /**
- * FluxCSS Components - v0.0.7
+ * FluxCSS Components - v0.0.8
  * Interactive components that work with the FluxCSS framework
  * Copyright 2025 FluxCSS.org
  */
