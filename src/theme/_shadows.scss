@@ -1,6 +1,59 @@
+
+// Mixin to generate shadow size classes
+@mixin generate-shadow-sizes($sizes) {
+    @each $size-name, $size-value in $sizes {
+        .sh-#{$size-name} {
+            --#{$prefix}-shadow-size: #{$size-value};
+        }
+        .dsh-#{$size-name} {
+            --#{$prefix}-dropshadow-size: #{$size-value};
+        }
+    }
+}
+
+
+// Mixin to generate shadow color classes
+@mixin generate-shadow-colors($colors, $opacities) {
+    @each $color-name, $color-value in $colors {
+        @each $opacity-name, $opacity-value in $opacities {
+            .sh-#{$color-name}-#{$opacity-name} {
+                $opacity-color: rgba($color-value, $opacity-value);
+                --#{$prefix}-shadow-color: #{$opacity-color};
+            }
+            .dsh-#{$color-name}-#{$opacity-name} {
+                $opacity-color: rgba($color-value, $opacity-value);
+                --#{$prefix}-dropshadow-color: #{$opacity-color};
+            }
+        }
+        .sh-#{$color-name} {
+            --#{$prefix}-shadow-color: #{$color-value};
+        }
+        .dsh-#{$color-name} {
+            --#{$prefix}-dropshadow-color: #{$color-value};
+        }
+    }
+}
+
+// Mixin for multiple drop shadows
+@mixin generate-multiple-dropshadows($counts) {
+    @each $count in $counts {
+        .dsh-multiple-#{$count} {
+            @for $i from 1 through $count {
+                --#{$prefix}-dropshadow-#{$i}-size: var(--#{$prefix}-dropshadow-size);
+                --#{$prefix}-dropshadow-#{$i}-color: var(--#{$prefix}-dropshadow-color);
+            }
+        }
+    }
+}
+
 // Class for default shadow
 .sh {
     box-shadow: var(--#{$prefix}-shadow-size) var(--#{$prefix}-shadow-color);
+}
+
+// Class for default drop shadow
+.dsh {
+    filter: drop-shadow(var(--#{$prefix}-dropshadow-size) var(--#{$prefix}-dropshadow-color));
 }
 
 // Generate shadow size classes
@@ -8,3 +61,20 @@
 
 // Generate shadow color classes
 @include generate-shadow-colors($all-colors, $opacities);
+
+// Class for multiple drop shadows
+.dsh-multiple {
+    filter:
+            drop-shadow(var(--#{$prefix}-dropshadow-1-size) var(--#{$prefix}-dropshadow-1-color))
+            drop-shadow(var(--#{$prefix}-dropshadow-2-size) var(--#{$prefix}-dropshadow-2-color))
+            drop-shadow(var(--#{$prefix}-dropshadow-3-size) var(--#{$prefix}-dropshadow-3-color))
+            drop-shadow(var(--#{$prefix}-dropshadow-4-size) var(--#{$prefix}-dropshadow-4-color));
+}
+
+// Generate multiple drop shadow classes
+@include generate-multiple-dropshadows((2, 3, 4));
+
+// Inset drop shadow effect (using box-shadow since drop-shadow doesn't support inset)
+.dsh-inset {
+    box-shadow: inset var(--#{$prefix}-dropshadow-size) var(--#{$prefix}-dropshadow-color);
+}

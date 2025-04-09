@@ -64,7 +64,7 @@
 .sidenav-toggle {
     position: absolute;
     top: 0;
-    left: 1rem;
+    left: -1.5rem; // Half of the button visible
     z-index: 2001;
     background-color: var(--fx-primary);
     color: var(--fx-white);
@@ -76,6 +76,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: left 0.3s ease-in-out; // Add transition for movement
+
+    &:hover {
+        left: 0; // Move the button to be fully visible
+    }
 }
 
 // Main content styles

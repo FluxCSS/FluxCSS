@@ -1,0 +1,63 @@
+// Tooltip base styles
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        background-color: var(--#{$prefix}-dark); // Default to dark color
+        color: get-contrast-color($dark); // Ensure contrast
+        text-align: center;
+        border-radius: 4px;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        transform: translateY(-50%);
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+}
+
+// Tooltip positions
+.tooltip-top::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    margin-bottom: 5px;
+}
+
+.tooltip-right::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 5px;
+}
+
+.tooltip-bottom::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    margin-top: 5px;
+}
+
+.tooltip-left::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 5px;
+}
+
+// Tooltip color themes
+@each $color-name, $color-value in $all-colors {
+    .tooltip-#{$color-name}::after {
+        background-color: $color-value;
+        color: get-contrast-color($color-value);
+    }
+}
