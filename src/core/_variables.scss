@@ -379,6 +379,17 @@ $header-bg-color: #f4f4f4;
 $stripe-color: #f9f9f9;
 $hover-color: #f1f1f1;
 
+// SCSS variables for stepper
+$stepper-bg-color: $light;
+$stepper-text-color: $dark;
+$stepper-active-bg-color: $primary;
+$stepper-active-text-color: $white;
+$stepper-completed-bg-color: $success;
+$stepper-completed-text-color: $white;
+$stepper-line-color: darken($light, 10%);
+$stepper-active-line-color: $primary;
+$stepper-border-color: darken($light, 10%);
+$stepper-content-bg-color: $white;
 
 // ======================================
 // ICONS

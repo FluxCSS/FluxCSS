@@ -10722,6 +10722,69 @@ dd {
     width: calc(100% - 250px);
   }
 }
+.stepper {
+  width: 100%;
+}
+
+.stepper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  display: inline-block;
+  margin: 0 auto 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  color: #333333;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+.step.active {
+  border-bottom: 2px solid #1E3A8A;
+}
+.step.active::before {
+  background-color: #1E3A8A;
+  color: #ffffff;
+}
+.step.completed::before {
+  background-color: #4caf50;
+  color: #ffffff;
+  content: "✓";
+  font-size: 1.2rem;
+}
+.step.active ~ .step::after, .step.completed ~ .step::after {
+  background-color: #1E3A8A;
+}
+
+.step-content {
+  display: none;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.step-content.active {
+  display: block;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;

@@ -1,0 +1,72 @@
+// Stepper container styles
+.stepper {
+    width: 100%;
+}
+
+// Step header container
+.stepper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    counter-reset: step; // Reset the counter here
+}
+
+// Individual step styles
+.step {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid $stepper-line-color;
+
+    &::before {
+        counter-increment: step; // Increment the counter for each step
+        content: counter(step);
+        display: inline-block;
+        margin: 0 auto 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        border-radius: 50%;
+        background-color: $stepper-bg-color; // Default to light color
+        color: $stepper-text-color; // Default text color
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    &.active{
+        border-bottom: 2px solid $stepper-active-line-color;
+        &::before {
+            background-color: $stepper-active-bg-color;
+            color: $stepper-active-text-color;
+        }
+    }
+
+    &.completed::before {
+        background-color: $stepper-completed-bg-color;
+        color: $stepper-completed-text-color;
+        content: "✓"; // Checkmark for completed steps
+        font-size: 1.2rem;
+    }
+
+    &.active ~ .step::after,
+    &.completed ~ .step::after {
+        background-color: $stepper-active-line-color;
+    }
+}
+
+// Step content styles
+.step-content {
+    display: none;
+    width: 100%; // Ensure content takes full width
+    padding: 1rem;
+    border: 1px solid $stepper-border-color;
+    border-radius: 4px;
+    background-color: $stepper-content-bg-color;
+    &.active {
+        display: block;
+    }
+}
+
