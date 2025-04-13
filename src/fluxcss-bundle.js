@@ -1,5 +1,5 @@
 /**
- * FluxCSS Components - v0.0.8
+ * FluxCSS Components - v0.1.0-beta
  * Interactive components that work with the FluxCSS framework
  * Copyright 2025 FluxCSS.org
  */
@@ -23,6 +23,9 @@
 
     // Initialize Modals
     initModals();
+
+    // Initialize Steppers
+    initSteppers();
   });
 
   /**
@@ -632,4 +635,86 @@
       }, 300); // Match the CSS transition duration
     }
   }
+  /**
+   * Initialize all steppers on the page
+   */
+  function initSteppers() {
+    // Select all steppers on the page
+    const steppers = document.querySelectorAll('.stepper');
+
+    // If no steppers found, exit early
+    if (steppers.length === 0) return;
+
+    // Initialize each stepper
+    steppers.forEach(function(stepper) {
+      const steps = stepper.querySelectorAll('.step');
+      const stepContents = stepper.querySelectorAll('.step-content');
+
+      // If no steps found, exit early for this stepper
+      if (steps.length === 0) return;
+
+      // Set initial state
+      let currentIndex = 0;
+
+      // Function to show a specific step content
+      function showStepContent(index) {
+        // Hide all step contents
+        stepContents.forEach(content => {
+          content.classList.remove('active');
+        });
+
+        // Deactivate all steps
+        steps.forEach(step => {
+          step.classList.remove('active');
+          step.classList.remove('completed');
+        });
+
+        // Show the selected step content and activate the corresponding step
+        stepContents[index].classList.add('active');
+        steps[index].classList.add('active');
+
+        // Mark previous steps as completed
+        for (let i = 0; i < index; i++) {
+          steps[i].classList.add('completed');
+        }
+
+        // Update current index
+        currentIndex = index;
+      }
+
+      // Function to show next step content
+      function nextStep() {
+        if (currentIndex < steps.length - 1) {
+          showStepContent(currentIndex + 1);
+        }
+      }
+
+      // Function to show previous step content
+      function prevStep() {
+        if (currentIndex > 0) {
+          showStepContent(currentIndex - 1);
+        }
+      }
+
+      // Add click event listeners to steps
+      steps.forEach(function(step, index) {
+        step.addEventListener('click', function() {
+          showStepContent(index);
+        });
+      });
+
+      // Add keyboard navigation
+      stepper.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+          prevStep();
+        } else if (e.key === 'ArrowRight') {
+          nextStep();
+        }
+      });
+
+      // Initialize the stepper
+      showStepContent(0);
+    });
+  }
+
 })();

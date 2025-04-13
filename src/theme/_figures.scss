@@ -14,10 +14,8 @@
         figcaption {
             padding: $caption-padding;
             text-align: center;
-            color: $caption-text-color;
         }
     }
-
     // Caption overlay at the bottom of the image
     &.caption-overlay {
         figcaption {
