@@ -1,6 +1,6 @@
 {
   "name": "@fluxcss/fluxcss",
-  "version": "0.1.0-beta",
+  "version": "0.1.0",
   "description": "Flexible, Mobile First, Responsive CSS Framework",
   "keywords": [
     "css",
